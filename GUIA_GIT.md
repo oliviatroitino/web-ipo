@@ -50,7 +50,7 @@ Hasta ahora la rama solo existe en su ordenador. Para que aparezca en GitHub y l
 git push -u origin nombre-apellido
 ```
 
-El `-u` solo hace falta la primera vez. Las siguientes veces que quieran subir cambios basta con `git push`.
+El `-u` solo hace falta la primera vez. Las siguientes veces que quieran subir cambios basta con `git push origin nombre-apellido`.
 
 ## 5. Flujo de trabajo diario
 
