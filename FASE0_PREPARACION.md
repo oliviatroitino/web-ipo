@@ -28,8 +28,53 @@ Qué secciones tendrá la web y cómo se relacionan. Pensar en los dos contextos
 ## Wireframes
 ### Mobile
 #### Home
+<img src="assets/home-mobile-mockup-2.png" alt="Mockup Móvil" width="300">
+
+Elementos: 
+- Header que contiene el nombre de la web y un dropdown a tipos de técnicas (Inspecting/Testing/Inquiring)
+- Título (Técnicas de Usabilidad)
+- Breve descripción de lo que hace la web
+- Botón que lleva a la página de técnicas de usabilidad
+- Footer con detalles
+
 #### Listado
+<img src="assets/listado-mobile-mockup-2.png" alt="Mockup Móvil" width="300">
+
+Elementos:
+- Header (Casita que lleva al inicio)
+- Título (Técnicas de Usabilidad, no debería ocupar tanto espacio como en el Home, es preferible que se vean directamente las técnicas)
+- Barra de búsqueda
+- Tabla con filtros (chips) de las técnicas
+  - Cards de técnicas:
+    - Móvil: solo aparecen los nombres de las técnicas, una abajo de la otra, deberían haber mínimo 3 visibles antes de hacer scroll
+    - Ordenador: podría aparecer algún detalle de clasificación además del nombre de la técnica
+- Footer
 #### Detalles
+##### No Desplegado
+<img src="assets/detalles-mobile-mockup-2-parte1.png" alt="Mockup Móvil" width="300">
+<img src="assets/detalles-mobile-mockup-2-parte2.png" alt="Mockup Móvil" width="300">
+
+##### Desplegado
+<img src="assets/detalles-mobile-mockup-parte1.png" alt="Mockup Móvil" width="300">
+<img src="assets/detalles-mobile-mockup-parte2.png" alt="Mockup Móvil" width="300">
+<img src="assets/detalles-mobile-mockup-parte3.png" alt="Mockup Móvil" width="300">
+
+
+Elementos:
+- Header (Casita que lleva al inicio, botón que lleve a la página de listado)
+- Título (Nombre de la técnica)
+Desde lo siguiente hasta el "Cómo se lleva a cabo" podría ser un toggle, para que el usuario tenga facilidad de ir directamente a la ejecución de la técnica si ya sabe lo que es.
+  - Clasificación (mismos chips de categoría) 
+    - Inspecting/Testing/Inquiring
+    - Moderada/No moderada
+    - Presencial/Remota
+  - Breve descripción de para qué sirve/no sirve
+  - Momento del ciclo de vida del desarrollo
+  - Recursos
+  - Cómo se lleva a cabo
+  - Resultado/Output
+  - Dimensiones de usabilidad evaluadas
+- Footer
 
 ### Desktop
 #### Home
