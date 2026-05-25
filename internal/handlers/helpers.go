@@ -4,7 +4,25 @@ import (
 	"fieldnotes/internal/content"
 	"html/template"
 	"net/http"
+	"strings"
 )
+
+// funcMap contiene las funciones de utilidad disponibles en todos los templates.
+var funcMap = template.FuncMap{
+	// inSlice comprueba si val está en slice; se usa para marcar checkboxes activos.
+	"inSlice": func(slice []string, val string) bool {
+		for _, s := range slice {
+			if s == val {
+				return true
+			}
+		}
+		return false
+	},
+	// slice construye un []string a partir de los argumentos; permite literales en templates.
+	"slice": func(vals ...string) []string { return vals },
+	// title pone en mayúscula la primera letra.
+	"title": strings.Title, //nolint:staticcheck
+}
 
 // PageData contiene los datos disponibles en todos los templates.
 type PageData struct {
@@ -27,7 +45,7 @@ type FiltrosActivos struct {
 // render combina layout.html con la plantilla de página indicada y ejecuta "layout".
 // Si algo falla devuelve 500 sin exponer detalles al navegador.
 func render(w http.ResponseWriter, r *http.Request, page string, data PageData) {
-	tmpl, err := template.ParseFiles(
+	tmpl, err := template.New("").Funcs(funcMap).ParseFiles(
 		"templates/layout.html",
 		"templates/"+page+".html",
 	)
