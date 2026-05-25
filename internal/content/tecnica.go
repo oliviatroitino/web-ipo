@@ -38,4 +38,7 @@ type Tecnica struct {
 	Pasos                 []Paso   `yaml:"pasos"`
 	Resultado             string   `yaml:"resultado"`
 	DimensionesUsabilidad []string `yaml:"dimensiones_usabilidad"`
+
+	// Descargable — nombre del archivo PDF en static/plantillas/ (opcional)
+	Plantilla string `yaml:"plantilla"`
 }
