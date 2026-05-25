@@ -25,10 +25,9 @@
       <nav class="sidebar-nav">
         <p class="sidebar-nav__label">En esta página</p>
         <ul class="sidebar-nav__list">
+          <li><a href="#pasos"          class="sidebar-nav__link">Cómo se lleva a cabo</a></li>
           <li><a href="#descripcion"    class="sidebar-nav__link">Descripción</a></li>
-          <li><a href="#para-que-sirve" class="sidebar-nav__link">Para qué sirve</a></li>
           <li><a href="#recursos"       class="sidebar-nav__link">Recursos</a></li>
-          <li><a href="#pasos"          class="sidebar-nav__link">Pasos</a></li>
           <li><a href="#resultado"      class="sidebar-nav__link">Resultado</a></li>
           <li><a href="#dimensiones"    class="sidebar-nav__link">Dimensiones</a></li>
         </ul>
@@ -58,8 +57,26 @@
         </div>
       </header>
 
+      {{/* Sección: Pasos — primera para acceso rápido en móvil */}}
+      <details class="ficha-seccion" id="pasos" open>
+        <summary class="ficha-seccion__titulo">Cómo se lleva a cabo</summary>
+        <div class="ficha-seccion__cuerpo">
+          <ol class="ficha-pasos">
+            {{range .Tecnica.Pasos}}
+            <li class="ficha-paso">
+              <span class="ficha-paso__num">{{.Numero}}</span>
+              <div class="ficha-paso__contenido">
+                <strong class="ficha-paso__titulo">{{.Titulo}}</strong>
+                <p class="ficha-paso__desc">{{.Descripcion}}</p>
+              </div>
+            </li>
+            {{end}}
+          </ol>
+        </div>
+      </details>
+
       {{/* Sección: Descripción */}}
-      <details class="ficha-seccion" id="descripcion" open>
+      <details class="ficha-seccion" id="descripcion">
         <summary class="ficha-seccion__titulo">Descripción y contexto</summary>
         <div class="ficha-seccion__cuerpo">
           <h3>¿Para qué sirve?</h3>
@@ -116,24 +133,6 @@
             {{end}}
           </ul>
           {{end}}
-        </div>
-      </details>
-
-      {{/* Sección: Pasos */}}
-      <details class="ficha-seccion" id="pasos">
-        <summary class="ficha-seccion__titulo">Cómo se lleva a cabo</summary>
-        <div class="ficha-seccion__cuerpo">
-          <ol class="ficha-pasos">
-            {{range .Tecnica.Pasos}}
-            <li class="ficha-paso">
-              <span class="ficha-paso__num">{{.Numero}}</span>
-              <div class="ficha-paso__contenido">
-                <strong class="ficha-paso__titulo">{{.Titulo}}</strong>
-                <p class="ficha-paso__desc">{{.Descripcion}}</p>
-              </div>
-            </li>
-            {{end}}
-          </ol>
         </div>
       </details>
 
