@@ -1,0 +1,63 @@
+id: think-aloud
+nombre: Think Aloud
+
+clasificacion: Prueba
+fases:
+  - Prototipado
+  - Evaluación
+duracion: corta
+recursos: bajo
+costo_monetario: bajo
+
+num_usuarios_min: 5
+num_usuarios_max: 8
+materiales:
+  - Prototipo o producto a evaluar
+  - Grabadora de audio o pantalla (opcional)
+  - Guión de tareas
+
+tiempos_detalle:
+  - fase: Preparación
+    tiempo: 1-2 horas
+  - fase: Reclutamiento de participantes
+    tiempo: 1-3 días
+  - fase: Ejecución por sesión
+    tiempo: 30-60 minutos
+  - fase: Análisis de resultados
+    tiempo: 1-3 horas
+
+para_que_sirve:
+  - Detectar problemas de usabilidad mientras el usuario interactúa con el producto
+  - Entender el modelo mental del usuario en tiempo real
+  - Identificar puntos de confusión en la interfaz o el flujo
+
+para_que_no_sirve:
+  - Obtener métricas cuantitativas de rendimiento
+  - Evaluar la arquitectura de información (para eso es más adecuado el Card Sorting)
+  - Reemplazar tests con métricas estadísticas en productos con muchos usuarios
+
+pasos:
+  - numero: 1
+    titulo: Define las tareas
+    descripcion: Prepara entre 3 y 6 tareas concretas que el participante deberá intentar completar. Las tareas deben reflejar escenarios reales de uso.
+  - numero: 2
+    titulo: Explica el protocolo
+    descripcion: Indica al participante que verbalice en voz alta todo lo que piensa mientras realiza las tareas. Aclara que estás evaluando el producto, no a él.
+  - numero: 3
+    titulo: Ejecuta la sesión
+    descripcion: El participante realiza las tareas mientras habla en voz alta. Observa y toma notas sin intervenir salvo para recordar que verbalice.
+  - numero: 4
+    titulo: Registra los hallazgos
+    descripcion: Anota los momentos de duda, error o frustración. Si grabaste la sesión, revisa el vídeo o audio para completar el análisis.
+  - numero: 5
+    titulo: Identifica patrones
+    descripcion: Agrupa los problemas detectados por frecuencia e impacto para priorizar las mejoras.
+
+resultado: >
+  Lista priorizada de problemas de usabilidad observados durante la interacción,
+  con contexto sobre por qué ocurren según las verbalizaciones del usuario.
+
+dimensiones_usabilidad:
+  - Eficacia
+  - Eficiencia
+  - Satisfacción
