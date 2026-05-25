@@ -58,13 +58,17 @@ function isFavorito(id) {
 }
 
 // ── Enlace de favoritos en el nav ────────────────────────────────────────────
-// Actualiza el href del enlace con los IDs actuales para que el servidor
-// reciba la lista y pueda renderizar la página correctamente.
-document.querySelectorAll('a[href="/favoritos"]').forEach(link => {
-  const ids = getFavoritos();
-  if (ids.length > 0) {
-    link.href = '/favoritos?ids=' + ids.join(',');
-  }
+// Se actualiza en el momento del click (no al cargar la página) para que
+// siempre refleje el estado actual de localStorage, incluso si se ha
+// guardado o eliminado una técnica en esta misma página.
+document.querySelectorAll('a[href^="/favoritos"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const ids = getFavoritos();
+    window.location.href = ids.length > 0
+      ? '/favoritos?ids=' + ids.join(',')
+      : '/favoritos';
+  });
 });
 
 // ── Botón guardar en la página de detalle ────────────────────────────────────
