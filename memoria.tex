@@ -1,0 +1,1032 @@
+% ============================================================
+%  Memoria del Proyecto Final — Interacción Persona-Ordenador
+%  Fieldnotes: Enciclopedia de Técnicas de Usabilidad
+% ============================================================
+\documentclass[12pt, a4paper]{report}
+
+% ── Idioma y codificación ──────────────────────────────────
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% ── Tipografía ────────────────────────────────────────────
+\usepackage{lmodern}
+
+% ── Márgenes ─────────────────────────────────────────────
+\usepackage[top=2.5cm, bottom=2.5cm, left=3cm, right=2.5cm]{geometry}
+
+% ── Interlineado ─────────────────────────────────────────
+\usepackage{setspace}
+\onehalfspacing
+
+% ── Imágenes ─────────────────────────────────────────────
+\usepackage{graphicx}
+\usepackage{float}
+
+% ── Colores y tablas ─────────────────────────────────────
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+% ── Listas y enumeraciones ───────────────────────────────
+\usepackage{enumitem}
+
+% ── Hipervínculos ────────────────────────────────────────
+\usepackage[hidelinks]{hyperref}
+
+% ── Cabeceras y pies de página ───────────────────────────
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Proyecto Final IPO — Fieldnotes}
+\fancyhead[R]{\small \leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Caja de nota de ejecución ────────────────────────────
+\usepackage{tcolorbox}
+\tcbuselibrary{skins}
+\newtcolorbox{notaejecucion}[1][]{
+  colback=gray!8,
+  colframe=gray!40,
+  fonttitle=\bfseries\small,
+  title=Contexto de ejecución,
+  #1
+}
+
+% ── Placeholder de imagen ────────────────────────────────
+% Uso: \imagenph{ancho}{descripción}
+\newcommand{\imagenph}[2]{%
+  \begin{figure}[H]
+    \centering
+    \fbox{\parbox[c][6cm][c]{#1}{\centering\color{gray}\textit{[Imagen: #2]}}}
+    \caption{#2}
+  \end{figure}%
+}
+
+% ─────────────────────────────────────────────────────────
+\begin{document}
+
+% ══════════════════════════════════════════════════════════
+%  PORTADA
+% ══════════════════════════════════════════════════════════
+\begin{titlepage}
+  \centering
+  \vspace*{2cm}
+  {\LARGE\bfseries Proyecto Final — Interacción Persona-Ordenador\par}
+  \vspace{0.5cm}
+  {\large\itshape Fieldnotes: Enciclopedia de Técnicas de Usabilidad\par}
+  \vspace{3cm}
+  \imagenph{8cm}{Logo o imagen de portada}
+  \vfill
+  {\large
+    Olivia Troitiño · Víctor Gonzalo · Rodrigo Coronel \\
+    Nube Arsuaga · Xianlong Wu · Eloy Sánchez-Viedma\par}
+  \vspace{1cm}
+  {\large Curso 2024--2025\par}
+\end{titlepage}
+
+% ══════════════════════════════════════════════════════════
+%  ACLARACIONES
+% ══════════════════════════════════════════════════════════
+\chapter*{Aclaraciones}
+\addcontentsline{toc}{chapter}{Aclaraciones}
+
+Esta memoria documenta el proceso de diseño del proyecto final de la asignatura
+\textit{Interacción Persona-Ordenador}. El objetivo del proyecto, tal como define el
+enunciado, es elaborar una página web que explique técnicas de usabilidad a un perfil de
+usuario concreto: \textbf{desarrolladores de software} que conocen la existencia de dichas
+técnicas pero no tienen experiencia aplicándolas. El contexto de uso prevé tanto consultas
+desde el puesto de oficina (durante la planificación de pruebas) como consultas rápidas
+desde dispositivos móviles o tablets (durante la ejecución de las pruebas).
+
+La memoria combina la explicación de las técnicas de HCI aplicadas y el razonamiento detrás
+de cada decisión de diseño. Las fuentes utilizadas son los apuntes de clase proporcionados
+por el profesor, los elaborados en clase por los alumnos, y fuentes externas. El enunciado
+completo del proyecto se reproduce en el Anexo~\ref{anx:enunciado}.
+
+% ══════════════════════════════════════════════════════════
+%  TABLA DE CONTENIDOS
+% ══════════════════════════════════════════════════════════
+\tableofcontents
+\clearpage
+
+% ══════════════════════════════════════════════════════════
+%  FASES DE DISEÑO
+% ══════════════════════════════════════════════════════════
+\chapter{Análisis y Planificación}
+
+\begin{notaejecucion}
+\textbf{28 de abril – 4 de mayo.} Olivia, como gestora del equipo, planifica la práctica:
+estructura de la memoria, diagrama de Gantt preliminar y plan básico de fases. Comunica al
+grupo que cada miembro debe ir pensando qué técnicas de usabilidad podrían implementarse
+en la primera fase.
+
+\textbf{5 de mayo.} Sesión en clase (Olivia, Víctor, Rodrigo). Se dedica tiempo a buscar webs
+de referencia y anotar decisiones de diseño observadas. Olivia propone coordinar una
+reunión para realizar el análisis heurístico y el focus group de Personas/Scenarios. Víctor
+sugiere usar \textit{Lyssna} (Usability Hub) como herramienta de apoyo.
+
+\textbf{8 de mayo.} Cada miembro realiza su análisis heurístico individual sobre las tres webs
+de referencia, pero no se llega a discutirlo en grupo.
+
+\textbf{12 de mayo.} Sesión en clase. Discusión grupal sobre el análisis heurístico. Se
+realiza el focus group para evaluar qué decisiones de diseño implementar en nuestra web.
+\end{notaejecucion}
+
+En la fase de análisis se definen los objetivos de la página web, las características de los
+usuarios objetivo y los requisitos técnicos del desarrollo.
+
+% ──────────────────────────────────────────────────────────
+\section{Contenido}
+
+El contenido está definido como una enciclopedia dedicada a las técnicas de usabilidad de
+la interacción persona-ordenador. El tiempo de vida del producto es largo, ya que se trata de
+una enciclopedia o base de datos actualizable. La gestión de las actualizaciones queda en
+manos del cliente, al ser un entregable con fecha límite de trabajo.
+
+% ──────────────────────────────────────────────────────────
+\section{Usuario}
+
+La web se dirige a un usuario específico: desarrolladores de software cuyo conocimiento de
+las técnicas de usabilidad está limitado al ámbito teórico, sin experiencia aplicándolas. La
+aplicación se plantea como una web de difusión general —abierta al público— pero
+orientada a usuarios especializados en el tema de usabilidad e interacción persona-ordenador.
+
+% ──────────────────────────────────────────────────────────
+\section{Producción}
+
+El proyecto se organiza con los siguientes roles de equipo:
+\begin{itemize}
+  \item \textbf{Gestor de producción y recursos}: organización de tareas, tiempos y equipo.
+  \item \textbf{Programadores y técnicos}: implementación de la web.
+  \item \textbf{Documentación y guionistas}: determinan el contenido y su estructura.
+\end{itemize}
+
+El equipo está compuesto por seis participantes, todos estudiantes de un doble grado en
+ingeniería informática e ingeniería en robótica. Sus perfiles son similares, aunque con
+distintos niveles de experiencia en ingeniería.
+
+% ──────────────────────────────────────────────────────────
+\section{Requisitos}
+
+Los requisitos definidos por el cliente son:
+\begin{enumerate}
+  \item \textbf{Usuario específico}: Desarrolladores de software que conocen la existencia de
+    técnicas de usabilidad pero no tienen experiencia aplicándolas.
+  \item \textbf{Objetivo específico}: Encontrar técnicas que les permitan tomar decisiones
+    centradas en el usuario o evaluar sus desarrollos/prototipos, y contar con la información
+    suficiente para aprender a ejecutarlas.
+  \item \textbf{Contexto de uso}: Los usuarios deben poder consultar la información de
+    manera eficiente desde cualquier dispositivo capaz de mostrar contenido web —tanto desde
+    el puesto de oficina como desde el móvil o tablet durante la ejecución de una prueba.
+\end{enumerate}
+
+% ──────────────────────────────────────────────────────────
+\section{Análisis de productos existentes}
+\label{sec:analisis-productos}
+
+Analizamos ejemplos existentes de páginas que recopilan técnicas de usabilidad y diseño.
+No todas se centran exclusivamente en usabilidad ni contienen únicamente clasificación de
+técnicas; aun así, se incluyeron porque ofrecen aprendizajes relevantes.
+
+Utilizamos la \textbf{Evaluación Heurística} basada en las 10 reglas de usabilidad web de
+Jakob Nielsen. Cada miembro del equipo realizó el análisis de forma independiente, y
+posteriormente los resultados se pusieron en común mediante un focus group el 12 de mayo.
+Este proceso combinado —análisis individual seguido de debate grupal— nos permitió
+detectar tanto coincidencias claras como discrepancias que enriquecieron las conclusiones.
+
+% ··············································
+\subsection{Usability Body of Knowledge (UBK)}
+
+\imagenph{\linewidth}{Captura de pantalla de UBK}
+
+Los análisis individuales del equipo coincidieron en los siguientes puntos sobre UBK:
+
+\begin{itemize}
+  \item \textbf{H1 – Visibilidad del estado} (\checkmark): La ruta de navegación
+    (\textit{breadcrumbs}) indica claramente al usuario en qué sección se ubica
+    (ej.\ \texttt{Home > Topics > Methods > User Research}).
+  \item \textbf{H2 – Lenguaje del usuario} (\textasciitilde): El lenguaje es familiar, pero la
+    organización de la página resulta por momentos inconsistente.
+  \item \textbf{H3 – Control y libertad} (\checkmark): El usuario puede volver atrás en la
+    jerarquía haciendo clic en los enlaces de la ruta superior.
+  \item \textbf{H4 – Consistencia y estándares} (\textasciitilde): Usa signos \texttt{+}/\texttt{-}
+    para desplegar subsecciones del menú, estándar de hace veinte años.
+  \item \textbf{H5 – Prevención de errores} (—): Al ser un sitio casi estático, el riesgo de
+    error de usuario es mínimo, pero no hay elementos activos de prevención.
+  \item \textbf{H6 – Reconocimiento sobre memorización} (\textasciitilde): Las categorías
+    visibles ayudan, pero no hay elementos visuales de apoyo.
+  \item \textbf{H7 – Flexibilidad y eficiencia} (\textasciitilde): Eficiente para el experto que
+    busca un dato; más lento para el aprendizaje.
+  \item \textbf{H8 – Diseño estético y minimalista} (\texttimes): El diseño es anticuado y la
+    falta de espacio en blanco (\textit{whitespace}) fatiga la vista.
+  \item \textbf{H9 – Reconocimiento y recuperación de errores} (\checkmark): Si el usuario
+    busca una técnica inexistente, la web le avisa que no hay resultados.
+  \item \textbf{H10 – Ayuda y documentación} (\texttimes): No hay FAQs ni documentación
+    de uso de la propia web.
+\end{itemize}
+
+\textbf{Notas del focus group (12 de mayo):}
+\begin{itemize}
+  \item Demasiadas sub-secciones; la navegación no es intuitiva.
+  \item Podrían usarse más colores para indicar estado y secciones.
+  \item Hay enlaces desactualizados que no llevan a ningún lado.
+  \item Las descripciones de las técnicas podrían estar mejor organizadas y son inconsistentes entre sí.
+\end{itemize}
+
+% ··············································
+\subsection{No Solo Usabilidad (NSU)}
+
+\imagenph{\linewidth}{Captura de pantalla de NSU}
+
+NSU funciona más como una revista/blog que como una enciclopedia de técnicas, pero
+resultó útil para observar cómo se describe cada técnica en un formato editorial. El equipo
+destacó:
+
+\begin{itemize}
+  \item \textbf{H1–H4} (\checkmark / \textasciitilde): La navegación es clara y el lenguaje
+    profesional y cercano; algunos artículos presentan estructuras visuales diferentes.
+  \item \textbf{H5 – Prevención de errores} (\texttimes): La barra de búsqueda dice
+    únicamente \textit{"powered by Google"} sin explicar qué se está buscando.
+  \item \textbf{H6 – Reconocimiento sobre memorización} (\texttimes): Al hacer scroll el
+    menú de navegación desaparece, obligando al usuario a memorizar las secciones.
+  \item \textbf{H8 – Diseño estético} (\textasciitilde): Las imágenes cubren un tercio de la
+    página, entorpeciendo la navegación y distrayendo de la lectura.
+  \item \textbf{H10 – Ayuda y documentación} (\texttimes): Sin FAQs ni manual de uso.
+\end{itemize}
+
+\textbf{Notas del focus group:}
+\begin{itemize}
+  \item Lenguaje profesional y legible.
+  \item Faltan iconos que faciliten la navegación y la comprensión de la arquitectura de información.
+  \item La web funciona como página lineal de scroll-down: buena organización del contenido,
+    pero estructura de acceso poco clara.
+\end{itemize}
+
+% ··············································
+\subsection{Service Design Tools (SDT)}
+
+\imagenph{\linewidth}{Captura de pantalla de SDT}
+
+SDT destaca como la referencia más moderna de las tres. Permite clasificar las técnicas
+por \textit{When} (etapa del desarrollo), \textit{Who} (a quién involucrar), \textit{What} (qué
+aspecto trabajar) y \textit{How} (tipo de representación).
+
+\begin{itemize}
+  \item \textbf{H1 – Visibilidad del estado} (\checkmark): Feedback visual inmediato al
+    seleccionar filtros; la sección activa se subraya en el menú.
+  \item \textbf{H3 – Control y libertad} (\checkmark): Una \texttt{X} permite quitar cualquier
+    filtro sin recargar.
+  \item \textbf{H5 – Prevención de errores} (\checkmark): El buscador tiene un
+    \textit{placeholder} que aclara qué se puede buscar; el sistema de filtrado evita
+    llegar a páginas vacías.
+  \item \textbf{H6 – Reconocimiento sobre memorización} (\checkmark): Los filtros aplicados
+    permanecen visibles en una lista persistente.
+  \item \textbf{H8 – Diseño estético} (\checkmark): La mejor de las tres en este apartado:
+    minimalista, con buen uso del espacio en blanco y tipografía legible.
+  \item \textbf{H10 – Ayuda y documentación} (\textasciitilde): Tiene sección de tutoriales,
+    pero falta una guía de inicio rápido.
+\end{itemize}
+
+\textbf{Notas del focus group:}
+\begin{itemize}
+  \item Organización lógica y simple; buen uso de iconos; estética bien lograda e intuitiva.
+  \item Los filtros pueden llegar a confundir si se combinan demasiados.
+  \item La descripción de las técnicas es más informativa que orientada a la ejecución;
+    solo en algunos casos incluye el \textit{cómo llevarlo a cabo}.
+\end{itemize}
+
+% ··············································
+\subsection{Conclusiones del análisis}
+\label{sec:conclusiones-analisis}
+
+\begin{itemize}
+  \item SDT es la mejor de las tres en cuanto a usabilidad y diseño visual.
+  \item UBK y SDT describen las técnicas con más rigor, pero resultan demasiado extensas y
+    difíciles de leer para nuestro caso de uso: consulta durante la ejecución de una prueba.
+  \item Ninguna de las tres ofrece FAQs ni documentación de ayuda sobre la propia web.
+  \item La mejor opción sería una mezcla: la estructura de acceso y la estética de SDT, la
+    profundidad de contenido de UBK, y la accesibilidad de lenguaje de NSU.
+\end{itemize}
+
+Estas conclusiones, junto con las notas del Affinity Diagram (véase el capítulo~\ref{ch:diseno}),
+guiaron directamente las decisiones de diseño del prototipo.
+
+% ══════════════════════════════════════════════════════════
+\chapter{Modelado del Usuario}
+
+\begin{notaejecucion}
+\textbf{12 de mayo.} Al concluir el focus group del análisis heurístico, se decide comenzar
+el modelado del usuario. Cada miembro del equipo debe crear una o más Persona/Scenario
+para el 13 de mayo.
+
+\textbf{22 de mayo.} Cada miembro revisa su Persona/Scenario y se crean los casos de uso
+a partir de los perfiles definidos.
+\end{notaejecucion}
+
+La fase de modelado del usuario se caracteriza por la definición de los perfiles de los
+usuarios de la aplicación. Se divide en dos partes: \textbf{Personas y Scenarios}, y
+\textbf{Casos de Uso}.
+
+% ──────────────────────────────────────────────────────────
+\section{Personas y Scenarios}
+
+Las Personas son usuarios realistas con características determinadas, descritos de manera
+narrativa con identidades concretas. Los Scenarios son casos específicos de utilización,
+teniendo en cuenta las tareas que el sistema debe llevar a cabo y el contexto en que la
+persona interactuará con la aplicación.\footnote{Toni Granollers, Jesús Lorés y José J.\ Cañas
+— \textit{Diseño de sistemas interactivos centrados en el usuario} (UOC, 2005).}
+
+Los tipos de persona definidos para este proyecto son:
+
+\begin{description}
+  \item[Focal] Principal tipo de usuario al que se dirige el proyecto: desarrolladores con
+    conocimiento teórico de las técnicas de usabilidad pero sin experiencia aplicándolas.
+  \item[Secundaria] Usan el producto de manera satisfactoria; en caso de conflicto de
+    intereses, se prioriza al usuario Focal. En este proyecto: desarrolladores sin
+    conocimiento previo, personas con interés general en usabilidad, y gestores o jefes
+    que quieren dirigir a sus equipos de diseño.
+  \item[No prioritario] Usan el producto de manera infrecuente; baja prioridad.
+  \item[Involucrado] No usan el producto pero se ven afectados por sus resultados (ej.\
+    participantes en pruebas de usabilidad conducidas por los desarrolladores que aprenden
+    en nuestra web).
+  \item[Excluido] No usan el producto ni se ven afectados.
+\end{description}
+
+La descripción de cada persona incluye un perfil geográfico, demográfico y psicosocial, así
+como su relación con el producto (rol, frecuencia de uso, porcentaje del uso total). Los
+scenarios recogen el contexto de utilización, el desarrollo de la interacción y las
+características emocionales.
+
+% ············· FOCAL ·································
+\subsection{Usuarios Focales}
+
+% --- Marcos ---
+\subsubsection{Marcos}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Edad} & 29 años \\
+\textbf{Profesión} & Desarrollador full-stack \\
+\midrule
+\textbf{Descripción} &
+Marcos vive en Buenos Aires. Estudió Ingeniería en Informática en la UBA, donde aprendió
+sobre técnicas de usabilidad. Lleva dos años trabajando en una startup de 15 personas como
+desarrollador y fue elegido recientemente para liderar el próximo proyecto. Al ser una empresa
+pequeña, no hay diseñador UX ni fondos para investigación de usuario, por lo que esta
+responsabilidad recae en Marcos. Tiene una laptop para desarrollo y una tablet para organización.
+Le gusta el contenido directo con ejemplos, y es impaciente con textos extensos y webs difíciles
+de navegar. \\[4pt]
+\textbf{Scenario} &
+Es lunes por la mañana. El equipo ha terminado un prototipo de la pantalla principal y Marcos
+necesita validar con usuarios que el diseño se entiende —tiene hasta el viernes. Abre la laptop,
+busca "técnicas de usabilidad", entra en la web y aplica filtros (bajo presupuesto, prototipo, poco
+tiempo). Encuentra dos opciones, abre sus fichas y se queda con la que tiene los pasos más claros
+y un ejemplo concreto. El jueves, mientras ejecuta la prueba, usa la tablet para consultar
+rápidamente un paso de la técnica que no recordaba. \\
+\bottomrule
+\end{tabularx}
+\caption{Persona Focal — Marcos}
+\end{table}
+
+% --- Alejandro ---
+\subsubsection{Alejandro}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Edad} & 24 años \\
+\textbf{Profesión} & Estudiante de ingeniería informática y desarrollador web junior \\
+\midrule
+\textbf{Descripción} &
+Alejandro vive en Madrid y combina estudios universitarios con pequeños proyectos de desarrollo
+web. Tiene conocimientos generales sobre experiencia de usuario y sabe que existen técnicas de
+usabilidad. Accede a internet principalmente desde su portátil. Pierde interés rápidamente cuando
+una web tiene demasiado texto, navegación confusa o información mal organizada. \\[4pt]
+\textbf{Scenario} &
+Es un miércoles por la tarde. Debe preparar el diseño inicial de una aplicación para una práctica
+universitaria y el profesor le pide justificar las técnicas de usabilidad utilizadas. Alejandro prueba
+primero una web con demasiados bloques de texto y se frustra. Luego accede a otra web con
+clasificación por categorías y filtros visuales y localiza rápidamente la información que necesita. \\
+\bottomrule
+\end{tabularx}
+\caption{Persona Focal — Alejandro}
+\end{table}
+
+% --- Elena ---
+\subsubsection{Elena}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Edad} & 34 años \\
+\textbf{Profesión} & Diseñadora de productos en una agencia de marketing digital \\
+\midrule
+\textbf{Descripción} &
+Elena vive en Madrid y lleva 8 años en el mundo del desarrollo web. Su rol es híbrido: aunque su
+fuerte es programar, ahora también asume responsabilidades de UX con clientes exigentes. Conoce
+la teoría de usabilidad, pero trabaja a un ritmo frenético y necesita adaptar metodologías complejas
+a formato ágil. Usuaria Focal con frecuencia de uso muy alta e interacción intensiva al arrancar cada
+proyecto. \\[4pt]
+\textbf{Scenario} &
+Es miércoles por la tarde. Un cliente le presiona porque desconfía del nuevo flujo de pago de su
+e-commerce; el objetivo SMART de Elena es obtener datos de usuarios en menos de 48 horas
+sin coste. Filtra la web por "menos de 2 horas de preparación", encuentra un test remoto, lee la
+ficha al detalle y descarga una plantilla de guion que personaliza de inmediato. \\
+\bottomrule
+\end{tabularx}
+\caption{Persona Focal — Elena}
+\end{table}
+
+% --- Li Xiaoxiao ---
+\subsubsection{Li Xiaoxiao}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Edad} & 21 años \\
+\textbf{Profesión} & Estudiante de segundo curso, Universidad Tsinghua \\
+\midrule
+\textbf{Descripción} &
+Li Xiaoxiao cursa Ingeniería de Software y Diseño de Interacción. Su meta es realizar un máster en
+UX/Usabilidad en España. Tiene conocimientos teóricos pero sin experiencia práctica. Necesita
+guías metodológicas sencillas, paso a paso, en un lenguaje accesible (el vocabulario técnico en
+español a veces le resulta complejo). \\[4pt]
+\textbf{Scenario} &
+Es jueves a las 19:00 en una cafetería de Barcelona. Xiaoxiao necesita seleccionar una técnica de
+usabilidad para evaluar su prototipo (entrega mañana). Accede desde su ordenador a la web,
+busca una ficha técnica clara que explique materiales, pasos y ejemplos para ejecutar la técnica
+esa misma noche. La cafetería cierra pronto y está cansada tras un día de turismo y visitas
+académicas. \\
+\bottomrule
+\end{tabularx}
+\caption{Persona Focal — Li Xiaoxiao}
+\end{table}
+
+% ············· SECUNDARIA ·····························
+\subsection{Usuarios Secundarios}
+
+% --- Giovanna ---
+\subsubsection{Giovanna}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Edad} & 27 años \\
+\textbf{Profesión} & Propietaria de un club de entretenimiento nocturno \\
+\midrule
+\textbf{Descripción} &
+Giovanna no tiene tiempo para manuales densos; busca herramientas que le permitan optimizar
+la tasa de conversión de reservas sin sacrificar estética. Maneja su negocio desde móvil y laptop.
+Usuaria Secundaria con uso ocasional. \\[4pt]
+\textbf{Scenario} &
+Es medianoche. Observa que el proceso de reserva de su nuevo sistema de tablets resulta
+"burocrático". Busca en la web una técnica centrada en la estética, filtra por "análisis visual" y
+guarda la ficha para reunirse con sus desarrolladores al día siguiente. \\
+\bottomrule
+\end{tabularx}
+\caption{Persona Secundaria — Giovanna}
+\end{table}
+
+% --- Lucía ---
+\subsubsection{Lucía}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Edad} & 23 años \\
+\textbf{Profesión} & Estudiante de último año de Ingeniería Informática \\
+\midrule
+\textbf{Descripción} &
+Lucía nunca ha cursado una asignatura de usabilidad; términos como "test de usabilidad" o
+"evaluación heurística" le suenan vagamente. Tiene paciencia para leer si el contenido le aporta,
+pero se pierde cuando un texto da por hecho conocimientos que ella no tiene. Trabaja desde portátil
+y hace consultas rápidas desde el móvil. \\[4pt]
+\textbf{Scenario} &
+Es un miércoles. Su tutor del TFG le pide que justifique decisiones de diseño y haga alguna prueba
+con usuarios. Busca "cómo evaluar la usabilidad de una web", llega a la web, entra en la sección
+de introducción para orientarse, sigue un enlace a una técnica sencilla y guarda el enlace para
+consultarlo desde el móvil en el metro. \\
+\bottomrule
+\end{tabularx}
+\caption{Persona Secundaria — Lucía}
+\end{table}
+
+% --- Javier ---
+\subsubsection{Javier}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Edad} & 45 años \\
+\textbf{Profesión} & Director de marketing en empresa mediana de retail \\
+\midrule
+\textbf{Descripción} &
+Perfil puramente de negocio: no sabe programar ni diseñar, pero decide los presupuestos de
+proyectos digitales. Ve la usabilidad como herramienta para vender más. A veces se siente
+intimidado por la jerga técnica. Usuario Secundario con uso bajo y ocasional. \\[4pt]
+\textbf{Scenario} &
+Las métricas muestran que el tráfico es alto pero las ventas han caído tras la última actualización.
+Javier busca una técnica que pueda sugerir a su equipo técnico sin cuestionar su trabajo. Encuentra
+un artículo sobre testeo con usuarios enfocado a negocio, con ejemplos claros de éxito. \\
+\bottomrule
+\end{tabularx}
+\caption{Persona Secundaria — Javier}
+\end{table}
+
+% --- Laura ---
+\subsubsection{Laura}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Edad} & 22 años \\
+\textbf{Profesión} & Perfil de ciberseguridad ofensiva (ficticio) \\
+\midrule
+\textbf{Descripción} &
+Persona de perfil extremo incluida para explorar cómo la web sería usada —o usada mal— bajo
+un contexto de alta presión y motivos no convencionales. Accede desde dispositivos en entornos
+de alta distracción. \\[4pt]
+\textbf{Scenario} &
+Necesita entender cómo un usuario común interactúa con una interfaz bajo estrés. Lee la ficha
+del Recorrido Cognitivo (\textit{Cognitive Walkthrough}) desde el móvil para identificar en qué pasos
+el flujo genera más confusión. \\
+\bottomrule
+\end{tabularx}
+\caption{Persona Secundaria — Laura}
+\end{table}
+
+% ············· INVOLUCRADO ····························
+\subsection{Usuario Involucrado}
+
+\subsubsection{Sofía}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Edad} & 26 años \\
+\textbf{Profesión} & Administrativa en Recursos Humanos \\
+\midrule
+\textbf{Descripción} &
+Sofía nunca entrará a la web de técnicas ni consumirá su contenido, pero el éxito de las técnicas
+que los desarrolladores aprendan ahí afectará directamente a su experiencia como participante en
+pruebas. Es usuaria de las aplicaciones que los desarrolladores evalúan. Se frustra si una interfaz
+la hace sentir poco capaz. \\[4pt]
+\textbf{Scenario} &
+Un desarrollador le pide que use un prototipo durante diez minutos mientras él observa. Sofía
+arranca el test un poco nerviosa y cohibida; espera una experiencia clara que no la haga perder
+el tiempo ni sentirse juzgada. \\
+\bottomrule
+\end{tabularx}
+\caption{Persona Involucrada — Sofía}
+\end{table}
+
+% ············· NO PRIORITARIO ·························
+\subsection{Usuario No Prioritario}
+
+\subsubsection{Carlos}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+\textbf{Edad} & 40 años \\
+\textbf{Profesión} & Profesor de bachillerato \\
+\midrule
+\textbf{Descripción} & Carlos da clase de tecnología. Oye a un alumno mencionar "pruebas de usabilidad" y siente curiosidad. \\[4pt]
+\textbf{Scenario} & Busca el término en Google, entra en la web, explora la página de inicio y las FAQs durante unos diez minutos y luego sigue con su vida. \\
+\bottomrule
+\end{tabularx}
+\caption{Persona No Prioritaria — Carlos}
+\end{table}
+
+% ──────────────────────────────────────────────────────────
+\section{Casos de Uso}
+
+A partir de los resultados de Personas/Scenarios se crean los casos de uso. Un caso de uso
+describe cómo un actor interactúa con el sistema para alcanzar un objetivo concreto: qué
+necesita, qué pasos sigue, y qué puede salir bien o mal. No todos los casos de uso se
+implementarán necesariamente, pero sus descripciones orientan las decisiones de diseño.
+
+% --- CU1 ---
+\subsection{CU1: Consultar la ficha de una técnica concreta para ejecutarla}
+
+\begin{longtable}{lp{10cm}}
+\toprule
+\textbf{Objetivo} & El desarrollador accede a toda la información necesaria de una técnica para poder aplicarla en su propio proyecto. \\
+\textbf{Precondiciones} & Usuario con acceso a internet y a un navegador. La web está disponible. El usuario tiene alguna necesidad relacionada con la usabilidad, aunque no necesariamente sabe qué técnica concreta la resolverá. \\
+\textbf{Post-condiciones} & El sistema ha mostrado al usuario el contenido de una o varias técnicas. \\
+\textbf{Cond. final éxito} & El usuario ha localizado la técnica adecuada y dispone de información suficiente para ejecutarla. \\
+\textbf{Cond. final fallo} & El usuario no encuentra ninguna técnica adecuada, o la ficha no contiene información suficiente. \\
+\textbf{Actor primario} & Desarrollador de software sin experiencia previa en técnicas de usabilidad. \\
+\midrule
+\textbf{Secuencia normal} & 1. Entra en la web. \newline 2. Explora el listado/categorías. \newline 3. Aplica filtros (fase, objetivo, tipo). \newline 4. Selecciona una técnica. \newline 5. Lee la ficha. \\
+\textbf{Alternativa a} & 2a. Usa el buscador por nombre. \newline 3a. Selecciona la técnica de los resultados. \newline 4a. Lee la ficha. \\
+\textbf{Alternativa b} & 2b. Accede a una sección de ayuda/recomendaciones. \newline 3b. Sigue una sugerencia que enlaza directamente a una técnica. \newline 4b. Lee la ficha. \\
+\bottomrule
+\end{longtable}
+
+% --- CU2 ---
+\subsection{CU2: Guardar técnicas de usabilidad para consultas posteriores}
+
+\begin{longtable}{lp{10cm}}
+\toprule
+\textbf{Objetivo} & Almacenar técnicas relevantes para recuperarlas más adelante durante el desarrollo de un proyecto o la preparación de documentación. \\
+\textbf{Actor primario} & Estudiante de ingeniería informática y desarrollador web junior. \\
+\textbf{Actores secundarios} & Profesor o tutor académico que solicita justificar las técnicas utilizadas. \\
+\midrule
+\textbf{Secuencia normal} &
+1. Navega por las técnicas disponibles. \newline
+2. Consulta distintas fichas relacionadas con su proyecto. \newline
+3. Marca una técnica que considera útil. \newline
+4. El sistema almacena la selección. \newline
+5. Continúa explorando. \newline
+6. Añade otras técnicas de interés. \newline
+7. Revisa el listado de técnicas guardadas. \\
+\bottomrule
+\end{longtable}
+
+% --- CU3 ---
+\subsection{CU3: Diagnóstico y prescripción de técnicas de evaluación}
+
+\begin{longtable}{lp{10cm}}
+\toprule
+\textbf{Objetivo} & Guiar al diseñador en la identificación, selección e instrucción de la metodología de evaluación óptima en función de las restricciones de su proyecto. \\
+\textbf{Actor primario} & Diseñador/evaluador novel que requiere validación metodológica externa. \\
+\midrule
+\textbf{Secuencia normal} &
+1. Accede al módulo de diagnóstico. \newline
+2. Introduce los síntomas observados en su interfaz mediante un menú de opciones múltiples. \newline
+3. Especifica los recursos críticos disponibles (tiempo, participantes, presupuesto). \newline
+4. El sistema calcula la compatibilidad y presenta la técnica ideal recomendada. \newline
+5. El usuario confirma la selección y el sistema despliega el plan de ejecución estructurado. \\
+\bottomrule
+\end{longtable}
+
+% --- CU4 ---
+\subsection{CU4: Calcular el número de usuarios necesarios y generar mensaje de reclutamiento}
+
+\begin{longtable}{lp{10cm}}
+\toprule
+\textbf{Objetivo} & Que el desarrollador sepa cuántos usuarios necesita para que su prueba sea válida y obtenga un texto listo para reclutar participantes. \\
+\textbf{Actor primario} & Desarrollador de software sin experiencia previa. \\
+\midrule
+\textbf{Secuencia normal} &
+1. Entra en "Calculadora de Usuarios y Reclutamiento". \newline
+2. Selecciona el tipo de público de su app (general / varios perfiles / muy específico). \newline
+3. Introduce el tipo de técnica mediante un menú desplegable. \newline
+4. El sistema aplica la fórmula y muestra el número recomendado de participantes. \newline
+5. El sistema genera una plantilla de mensaje de reclutamiento personalizada. \newline
+6. El usuario pulsa "Copiar texto". \\
+\bottomrule
+\end{longtable}
+
+% --- CU5 ---
+\subsection{CU5: Descargar recursos y plantillas para la ejecución ágil de una técnica}
+
+\begin{longtable}{lp{10cm}}
+\toprule
+\textbf{Objetivo} & Acceder a herramientas listas para usar (plantillas de guiones, checklists, matrices) asociadas a una técnica para aplicarla de forma inmediata. \\
+\textbf{Actor primario} & Usuario Focal (desarrollador con conocimientos en usabilidad). \\
+\textbf{Actores secundarios} & Usuario Secundario con conocimientos previos que requiere herramientas ejecutables. \\
+\midrule
+\textbf{Secuencia normal} &
+1. Entra en la web. \newline
+2. Busca la técnica mediante filtros o el menú. \newline
+3. Selecciona la técnica. \newline
+4. Accede a la sección "Recursos y Plantillas" dentro de la ficha. \newline
+5. Selecciona el archivo que necesita. \newline
+6. El sistema inicia la descarga. \\
+\bottomrule
+\end{longtable}
+
+% --- CU6 ---
+\subsection{CU6: Explorar la web de forma casual}
+
+\begin{longtable}{lp{10cm}}
+\toprule
+\textbf{Objetivo} & Que un usuario sin perfil técnico pueda entender de forma básica qué es una técnica de usabilidad navegando por curiosidad, sin objetivo profesional concreto. \\
+\textbf{Actor primario} & Usuario no prioritario (sin perfil técnico, curiosidad puntual). \\
+\midrule
+\textbf{Secuencia normal} &
+1. Busca "test de usabilidad" en su navegador. \newline
+2. Entra en la web. \newline
+3. Explora la página de inicio y las FAQs. \newline
+4. Lee acerca de alguna técnica concreta. \\
+\textbf{Cond. final fallo} & El usuario encuentra el contenido demasiado técnico y abandona la web. \\
+\bottomrule
+\end{longtable}
+
+% ══════════════════════════════════════════════════════════
+\chapter{Diseño}
+\label{ch:diseno}
+
+\begin{notaejecucion}
+\textbf{24 de mayo.} Se realiza el Affinity Diagram de forma colaborativa y remota. A
+continuación se celebra un focus group para discutir qué grupos y filtros debían mantenerse,
+y cuáles fusionarse o eliminarse.
+\end{notaejecucion}
+
+La fase de diseño responde a las características definidas en el análisis y el modelado del
+usuario. Su objetivo es traducir los hallazgos de las fases anteriores en decisiones concretas
+sobre la estructura y el contenido de la web. La técnica principal empleada fue el
+\textbf{Affinity Diagram}.
+
+% ──────────────────────────────────────────────────────────
+\section{Affinity Diagram}
+
+El Affinity Diagram es una técnica de síntesis que permite organizar grandes cantidades de
+datos cualitativos en grupos temáticos emergentes. Se aplica en tres pasos: (1) generación
+individual de notas/observaciones, (2) agrupación silenciosa y colaborativa, y (3) debate y
+nombramiento de los grupos resultantes. Elegimos esta técnica porque en las fases
+anteriores habíamos acumulado una gran cantidad de notas heterogéneas —del análisis
+heurístico, los focus groups y los casos de uso— que necesitaban sintetizarse antes de
+diseñar los wireframes.
+
+\subsection{Paso 1: Aportación individual de notas}
+
+Cada miembro del equipo aportó observaciones independientes basadas en el análisis
+heurístico, los scenarios y los casos de uso. A continuación se reproducen las contribuciones
+individuales agrupadas por autor.
+
+\imagenph{\linewidth}{Tablero completo con las notas individuales del Affinity Diagram (captura de pantalla de la herramienta online)}
+
+\paragraph{Olivia Troitiño}
+\begin{itemize}[nosep]
+  \item Faltan íconos en las webs analizadas.
+  \item Las webs en general podrían ser más concisas; pierde interés cuando hay demasiado texto.
+  \item Prefiere lenguaje accesible; busca información clara porque trabaja con tiempos limitados.
+  \item UBK tiene demasiadas sub-secciones y una navegación poco intuitiva; hay enlaces desactualizados.
+  \item Las webs en general no tienen FAQs.
+  \item La ficha no siempre contiene información suficiente para aplicar la técnica.
+  \item Organización por clasificación, presupuesto, fases, resultado u objetivo.
+  \item Filtros por tiempos y por tipo de análisis.
+  \item El sistema debe permitir almacenar selecciones del usuario.
+  \item Posibilidad de comparar dos técnicas.
+\end{itemize}
+
+\paragraph{Rodrigo Coronel}
+\begin{itemize}[nosep]
+  \item Las interfaces simples con filtros y clasificación visual permiten localizar contenido con
+    menos esfuerzo y mejoran la accesibilidad para usuarios noveles.
+  \item Los usuarios esperan experiencias directas, intuitivas y con baja carga cognitiva, especialmente
+    bajo presión o tiempo limitado.
+  \item Las webs analizadas presentan exceso de texto, demasiadas subsecciones y estructuras complejas.
+  \item La web debe facilitar la aplicación práctica mediante fichas claras, recomendaciones, recursos
+    descargables y acceso rápido.
+  \item Los usuarios necesitan recuperar información previamente consultada sin repetir búsquedas.
+\end{itemize}
+
+\paragraph{Víctor Gonzalo}
+\begin{itemize}[nosep]
+  \item SDT tiene una iconografía bonita y convencional para sus técnicas.
+  \item "Necesito que la información sea muy digerible, sin código ni tecnicismos absurdos."
+  \item NSU no tiene una forma clara de acceder a las técnicas; parece una página lineal de scroll-down.
+  \item UBK tiene una gran organización de la información y distintas \textit{landings} bien organizadas.
+  \item SDT tiene buena estructura (when/who/what/how) pero demasiado amplia.
+  \item No puede ocurrir que el enlace de descarga de recursos esté roto.
+\end{itemize}
+
+\paragraph{Eloy Sánchez-Viedma}
+\begin{itemize}[nosep]
+  \item La página de inicio debe invitar al usuario a explorarla, sin sobrecarga y con FAQs.
+  \item La información debe explicarse de forma que cualquiera pueda entenderla.
+  \item Se debe aclarar el uso de cada técnica para que el usuario encuentre la adecuada en el menor
+    tiempo posible.
+\end{itemize}
+
+\paragraph{Nube Arsuaga}
+\begin{itemize}[nosep]
+  \item "Odio las webs que son solo texto infumable. Si me vas a explicar la usabilidad, demuéstralo
+    con la usabilidad de tu propia página."
+  \item Necesitan ejemplos reales de empresas que aplicaron la técnica.
+  \item La web debe cargar rápido en dispositivos móviles.
+  \item "Cuando tengo una duda en medio de un taller, entro en Google rápido. Necesito un buscador
+    que vaya al grano, no un artículo de opinión."
+  \item El usuario busca filtrar técnicas por la fase del proyecto en que se encuentra.
+\end{itemize}
+
+\paragraph{Xianlong Wu (昱龙吴)}
+\begin{itemize}[nosep]
+  \item UBK cumple con la visibilidad del estado pero es muy pobre visualmente.
+  \item Necesidad de una ficha técnica clara con lenguaje accesible.
+  \item La ausencia de menú persistente en NSU obliga a recordar dónde estaban las secciones.
+  \item Evitar imágenes desproporcionadas que rompen la continuidad de la lectura.
+  \item Procurar que los recursos no estén dañados (enlaces caducados, etc.).
+\end{itemize}
+
+\subsection{Paso 2: Agrupación silenciosa y colaborativa}
+
+La agrupación se realizó de forma online y simultánea. La moderadora (Olivia) observó la
+evolución del tablero sin intervenir en las decisiones de agrupación, apuntando únicamente
+sus observaciones:
+
+\begin{itemize}
+  \item En los primeros diez minutos aparecieron los siguientes grupos emergentes: filtros y
+    organización (que de a poco se dividió en dos), información comprensible y concisa,
+    problemas a evitar + reducción de carga cognitiva (que también comenzó a separarse),
+    plantillas/recursos, e iconografía y estilo visual.
+  \item \textbf{Momento de desacuerdo 1}: La tarjeta "página de inicio debe ser concisa" fue
+    movida repetidamente entre "Información comprensible y concisa" y "Problemas a evitar",
+    lo que acabó resolviéndose en el debate de la fase 3.
+  \item \textbf{Momento de desacuerdo 2}: Dos integrantes reclamaron simultáneamente la
+    tarjeta "Faltan íconos"; uno la tomó y el otro aceptó el cambio.
+  \item El grupo de plantillas absorbió tarjetas de recursos/descargables e imágenes, incluyendo
+    "La web debe cargar rápido en dispositivos móviles", cuya conexión con el grupo no resultó
+    obvia a la moderadora.
+  \item También se detectó solapamiento entre los dos sub-grupos de filtros y organización, y
+    entre el grupo de "Problemas a evitar" y el de "Información comprensible y concisa".
+\end{itemize}
+
+\imagenph{\linewidth}{Tablero tras la agrupación silenciosa (captura de pantalla)}
+
+\subsection{Paso 3: Debate y nombrado de los grupos}
+
+Tras el debate, el equipo acordó los siguientes cinco grupos temáticos:
+
+\subsubsection{Diseño Visual}
+Incorporar iconografía; diseño minimalista y simple; la página de inicio debe invitar al usuario
+a explorarla.
+
+\subsubsection{Información Clara y Concisa}
+Información fácilmente digerible, sin sobrecarga; FAQs en la página de inicio; lenguaje accesible
+para el usuario no técnico; ejemplos reales; fichas técnicas claras; buscador específico.
+
+\subsubsection{Problemas a Evitar}
+Exceso de texto, subsecciones y estructuras complejas; webs lentas; menú no persistente; diseños
+anticuados; enlaces caducados; fichas sin suficiente información para ejecutar la técnica.
+
+\subsubsection{Recursos / Accesibilidad}
+Repositorio de plantillas accesible desde la página de inicio; fichas con plantillas descargables
+y en formatos compatibles; la web debe cargar rápido en móvil; no tener imágenes desproporcionadas.
+
+\subsubsection{Features (Organización, Filtrado y Funcionalidades)}
+Organización de técnicas por clasificación, presupuesto, fases y resultado/objetivo; filtros por
+tiempos y tipo de análisis; página de "favoritos"; comparación de dos técnicas; buscador general.
+
+\imagenph{\linewidth}{Tablero final con los grupos nombrados (captura de pantalla)}
+
+% ──────────────────────────────────────────────────────────
+\section{De las conclusiones del diseño a los wireframes}
+
+Los cinco grupos del Affinity Diagram condensaron las necesidades identificadas en el
+análisis y el modelado del usuario en un conjunto de requisitos de diseño concretos. El
+siguiente paso fue traducirlos en pantallas tangibles mediante wireframes. Dado que el
+contexto de uso incluye explícitamente el acceso desde móvil durante la ejecución de una
+prueba (requisito 3), adoptamos un enfoque \textbf{mobile-first}: diseñamos primero las
+pantallas para el ancho de pantalla más pequeño y luego ampliamos el diseño a escritorio.
+
+Las decisiones principales que guiaron los wireframes fueron:
+\begin{itemize}
+  \item Navegación persistente y visible en todo momento (soluciona H6 detectado en NSU y UBK).
+  \item Filtros prominentes desde la pantalla de listado de técnicas (grupo "Features").
+  \item Página de inicio concisa con una breve descripción y acceso directo al catálogo
+    (grupos "Información clara y concisa" y "Diseño visual").
+  \item Ficha de técnica con secciones claras y descarga de plantilla integrada
+    (grupos "Recursos/Accesibilidad" e "Información clara y concisa").
+\end{itemize}
+
+% ══════════════════════════════════════════════════════════
+\chapter{Prototipado}
+
+\begin{notaejecucion}
+\textbf{24 de mayo.} Tras el Affinity Diagram y el focus group, se diseñaron los wireframes.
+Se adoptó un enfoque mobile-first y luego se extendió el diseño a escritorio.
+\end{notaejecucion}
+
+La fase de prototipado materializa las decisiones de diseño en representaciones visuales
+concretas. En esta fase se elaboraron wireframes de baja-media fidelidad para las pantallas
+principales de la web.
+
+% ──────────────────────────────────────────────────────────
+\section{Wireframes — Mobile-first}
+
+\imagenph{\linewidth}{Wireframe mobile: página de inicio}
+\imagenph{\linewidth}{Wireframe mobile: listado y filtrado de técnicas}
+\imagenph{\linewidth}{Wireframe mobile: ficha de una técnica}
+
+% ──────────────────────────────────────────────────────────
+\section{Wireframes — Desktop}
+
+\imagenph{\linewidth}{Wireframe desktop: página de inicio}
+\imagenph{\linewidth}{Wireframe desktop: listado y filtrado de técnicas}
+\imagenph{\linewidth}{Wireframe desktop: ficha de una técnica}
+
+% ══════════════════════════════════════════════════════════
+%  ANEXOS
+% ══════════════════════════════════════════════════════════
+\appendix
+
+\chapter{Ficha de Técnica}
+\label{anx:ficha}
+
+La siguiente ficha es la plantilla utilizada como unidad de contenido de la web. El orden
+de los componentes será ajustado durante la implementación: dado que los usuarios focales
+ya tienen conocimiento previo de las técnicas, consideramos que el apartado "¿Cómo se
+lleva a cabo?" resulta más relevante que los componentes puramente descriptivos.
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+Nombre de la técnica & \\
+Clasificación & (Inspecting / Testing / Inquiring) \\
+¿Para qué sirve? & \\
+¿Para qué no sirve? & \\
+Momento del ciclo de vida & \\
+Tiempos & \\
+Cantidad de usuarios o evaluadores & \\
+Materiales & \\
+Costo monetario & \\
+¿Cómo se lleva a cabo? & \\
+Resultado/Output & \\
+Dimensiones de usabilidad evaluadas & \\
+\bottomrule
+\end{tabularx}
+\caption{Plantilla de la ficha de técnica}
+\end{table}
+
+% ──────────────────────────────────────────────────────────
+\chapter{Templates}
+\label{anx:templates}
+
+\section{Plantilla Persona-Scenario}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+Edad & \\
+Profesión & \\
+Descripción de la persona & \\
+Descripción del scenario & \\
+\bottomrule
+\end{tabularx}
+\caption{Plantilla de Persona-Scenario}
+\end{table}
+
+\section{Plantilla Caso de Uso}
+
+\begin{table}[H]
+\centering
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+Objetivo & \\
+Precondiciones & \\
+Post-condiciones & \\
+Condición final exitoso & \\
+Condición final fallido & \\
+Actor primario & \\
+Actores secundarios & \\
+Secuencia normal & \\
+Secuencias alternativas & \\
+\bottomrule
+\end{tabularx}
+\caption{Plantilla de Caso de Uso}
+\end{table}
+
+% ──────────────────────────────────────────────────────────
+\chapter{Enunciado del Proyecto}
+\label{anx:enunciado}
+
+\begin{quote}
+Como ya he comentado varias veces en clase, la práctica final consistirá en la elaboración
+de una página web que explique las técnicas de usabilidad:
+
+\begin{itemize}
+  \item \textbf{Usuario específico}: Desarrolladores de software que conocen la existencia de
+    técnicas de usabilidad pero no tienen experiencia aplicándolas.
+  \item \textbf{Objetivo específico}: Encontrar técnicas que les permitan tomar decisiones
+    centradas en el usuario o evaluar sus desarrollos / prototipos y contar con la información
+    suficiente para aprender a ejecutarlas.
+  \item \textbf{Contexto de uso}: Deberán ser capaces de consultar esta información de manera
+    eficiente desde cualquier tipo de dispositivo capaz de mostrar contenido web. Los usuarios
+    pueden usar la web para documentarse, seleccionar y preparar las pruebas desde su puesto de
+    oficina, pero también les puede hacer falta consultar la información desde el móvil o una tablet
+    mientras están realizando alguna prueba.
+\end{itemize}
+
+Para la información de cada técnica que se muestre en la web podréis usar la ficha que hemos
+realizado en la última PEC.
+
+\textbf{IMPORTANTE}: El trabajo NO ES SOLO LA WEB, sino que documentéis bien cómo habéis
+ido tomando las decisiones de diseño, mediante técnicas de HCI/Usabilidad para llegar a esa web.
+ESTO ES ESENCIAL.
+\end{quote}
+
+% ──────────────────────────────────────────────────────────
+\end{document}

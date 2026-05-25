@@ -119,9 +119,16 @@
           {{range .Tecnicas}}
           <li class="tecnica-card">
             <a href="/tecnicas/{{.ID}}" class="tecnica-card__link">
-              <h2 class="tecnica-card__nombre">{{.Nombre}}</h2>
+              <span class="tecnica-card__categoria">{{.Clasificacion}}</span>
+              <div class="tecnica-card__encabezado">
+                {{if .Icono}}
+                <div class="tecnica-card__icono">
+                  <i data-lucide="{{.Icono}}"></i>
+                </div>
+                {{end}}
+                <h2 class="tecnica-card__nombre">{{.Nombre}}</h2>
+              </div>
               <div class="tecnica-card__chips">
-                <span class="chip chip--clasificacion">{{.Clasificacion}}</span>
                 {{range .Fases}}
                 <span class="chip chip--fase">{{.}}</span>
                 {{end}}

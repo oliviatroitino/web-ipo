@@ -41,4 +41,7 @@ type Tecnica struct {
 
 	// Descargable — nombre del archivo PDF en static/plantillas/ (opcional)
 	Plantilla string `yaml:"plantilla"`
+
+	// Visual — nombre del icono Lucide (opcional, ej: "layers", "users")
+	Icono string `yaml:"icono"`
 }
