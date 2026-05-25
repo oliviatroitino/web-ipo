@@ -2,6 +2,7 @@ package main
 
 import (
 	"fieldnotes/internal/content"
+	"fieldnotes/internal/handlers"
 	"log"
 	"net/http"
 )
@@ -12,31 +13,18 @@ func main() {
 	if err != nil {
 		log.Fatalf("Error cargando técnicas: %v", err)
 	}
-	log.Printf("Técnicas cargadas (%d):", len(tecnicas))
-	for _, t := range tecnicas {
-		log.Printf("  - %s [%s]", t.Nombre, t.Clasificacion)
-	}
+	log.Printf("Técnicas cargadas (%d)", len(tecnicas))
 
 	mux := http.NewServeMux()
 
 	// Archivos estáticos
 	mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 
-	// Rutas (handlers a completar en pasos siguientes)
-	mux.HandleFunc("/", homeHandler)
+	// Rutas
+	mux.Handle("/", handlers.HomeHandler(tecnicas))
 
 	log.Println("Servidor arrancado en http://localhost:8080")
 	if err := http.ListenAndServe(":8080", mux); err != nil {
 		log.Fatal(err)
 	}
-}
-
-func homeHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
-		http.NotFound(w, r)
-		return
-	}
-	w.Header().Set("Content-Type", "text/plain")
-	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("Fieldnotes — OK"))
 }
