@@ -22,6 +22,7 @@ func main() {
 
 	// Rutas
 	mux.Handle("/", handlers.HomeHandler(tecnicas))
+	mux.Handle("/tecnicas/{id}", handlers.DetalleHandler(tecnicas))
 
 	log.Println("Servidor arrancado en http://localhost:8080")
 	if err := http.ListenAndServe(":8080", mux); err != nil {
