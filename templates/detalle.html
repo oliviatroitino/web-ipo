@@ -30,6 +30,9 @@
           <li><a href="#recursos"       class="sidebar-nav__link">Recursos</a></li>
           <li><a href="#resultado"      class="sidebar-nav__link">Resultado</a></li>
           <li><a href="#dimensiones"    class="sidebar-nav__link">Dimensiones</a></li>
+          {{if .Tecnica.Plantilla}}
+          <li><a href="#descargas"      class="sidebar-nav__link">Descargas</a></li>
+          {{end}}
         </ul>
       </nav>
     </aside>
@@ -54,6 +57,11 @@
           <button class="btn btn--secondary js-favorito" data-id="{{.Tecnica.ID}}" aria-label="Guardar en favoritos">
             Guardar
           </button>
+          {{if .Tecnica.Plantilla}}
+          <a href="/static/plantillas/{{.Tecnica.Plantilla}}" class="btn btn--secondary" download aria-label="Descargar plantilla en PDF">
+            Descargar plantilla
+          </a>
+          {{end}}
         </div>
       </header>
 
@@ -155,6 +163,26 @@
           </ul>
         </div>
       </details>
+
+      {{/* Sección: Descargas — solo si la técnica tiene plantilla */}}
+      {{if .Tecnica.Plantilla}}
+      <details class="ficha-seccion" id="descargas">
+        <summary class="ficha-seccion__titulo">Descargas</summary>
+        <div class="ficha-seccion__cuerpo">
+          <ul class="ficha-descargas">
+            <li class="ficha-descarga">
+              <div class="ficha-descarga__info">
+                <span class="ficha-descarga__nombre">Plantilla — {{.Tecnica.Nombre}}</span>
+                <span class="ficha-descarga__tipo">PDF</span>
+              </div>
+              <a href="/static/plantillas/{{.Tecnica.Plantilla}}" class="btn btn--secondary" download>
+                Descargar
+              </a>
+            </li>
+          </ul>
+        </div>
+      </details>
+      {{end}}
 
     </article>{{/* /.detalle__main */}}
   </div>{{/* /.detalle__layout */}}
