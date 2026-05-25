@@ -1,0 +1,47 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{block "title" .}}Fieldnotes{{end}} — Técnicas de usabilidad</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="site-logo" aria-label="Fieldnotes — inicio">Fieldnotes</a>
+    <nav class="site-nav" aria-label="Navegación principal">
+      <a href="/"         class="nav-link{{if eq .CurrentPage "home"}}      nav-link--active{{end}}">Técnicas</a>
+      <a href="/help"     class="nav-link{{if eq .CurrentPage "help"}}      nav-link--active{{end}}">Ayuda</a>
+      <a href="/favoritos"class="nav-link{{if eq .CurrentPage "favoritos"}} nav-link--active{{end}}">Favoritos</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+      <span class="nav-toggle__bar"></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <a href="/"          class="mobile-nav-link{{if eq .CurrentPage "home"}}      mobile-nav-link--active{{end}}">Técnicas</a>
+    <a href="/help"      class="mobile-nav-link{{if eq .CurrentPage "help"}}      mobile-nav-link--active{{end}}">Ayuda</a>
+    <a href="/favoritos" class="mobile-nav-link{{if eq .CurrentPage "favoritos"}} mobile-nav-link--active{{end}}">Favoritos</a>
+  </div>
+
+  <main class="site-main" id="main-content">
+    {{block "content" .}}{{end}}
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 Grupo 7 · UCJC — Interacción Persona-Ordenador</span>
+      <nav class="footer-nav" aria-label="Navegación pie de página">
+        <a href="/help" class="footer-link">Ayuda</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
+{{end}}
