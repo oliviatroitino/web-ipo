@@ -22,8 +22,10 @@ func main() {
 
 	// Rutas
 	mux.Handle("/", handlers.HomeHandler(tecnicas))
+	mux.Handle("/tecnicas/comparar", handlers.ComparacionHandler(tecnicas))
 	mux.Handle("/tecnicas/{id}", handlers.DetalleHandler(tecnicas))
 	mux.Handle("/help", handlers.HelpHandler(tecnicas))
+	mux.Handle("/favoritos", handlers.FavoritosHandler(tecnicas))
 
 	log.Println("Servidor arrancado en http://localhost:8080")
 	if err := http.ListenAndServe(":8080", mux); err != nil {
