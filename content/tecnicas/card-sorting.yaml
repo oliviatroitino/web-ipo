@@ -66,3 +66,6 @@ resultado: >
 dimensiones_usabilidad:
   - Aprendizaje
   - Eficiencia
+
+# Nombre del archivo PDF en static/plantillas/ (dejar vacío si no hay plantilla)
+# plantilla: card-sorting.pdf
