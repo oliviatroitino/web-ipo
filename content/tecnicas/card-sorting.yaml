@@ -1,0 +1,68 @@
+id: card-sorting
+nombre: Card Sorting
+
+clasificacion: Inspección
+fases:
+  - Descubrimiento
+  - Prototipado
+duracion: media
+recursos: bajo
+costo_monetario: bajo
+
+num_usuarios_min: 15
+num_usuarios_max: 30
+materiales:
+  - Tarjetas físicas o herramienta digital (OptimalSort, Maze)
+  - Bolígrafos (variante física)
+  - Espacio tranquilo o enlace a sesión remota
+
+tiempos_detalle:
+  - fase: Preparación
+    tiempo: 2-3 horas
+  - fase: Reclutamiento de participantes
+    tiempo: 3-5 días
+  - fase: Ejecución por sesión
+    tiempo: 20-40 minutos
+  - fase: Análisis de resultados
+    tiempo: 2-4 horas
+
+para_que_sirve:
+  - Diseñar o validar la arquitectura de información de un producto
+  - Decidir cómo organizar menús, categorías y secciones
+  - Descubrir cómo los usuarios agrupan conceptos mentalmente
+
+para_que_no_sirve:
+  - Medir eficacia o eficiencia de uso
+  - Detectar problemas de interacción o interfaz visual
+  - Evaluar un producto ya desarrollado en detalle
+
+pasos:
+  - numero: 1
+    titulo: Define el contexto
+    descripcion: Determina qué arquitectura quieres diseñar o validar y recopila los conceptos o elementos que van a ordenar los participantes.
+  - numero: 2
+    titulo: Prepara las tarjetas
+    descripcion: Escribe cada concepto en una tarjeta. Lo habitual es entre 30 y 100 conceptos. En la variante abierta deja tarjetas en blanco para que los participantes añadan categorías propias.
+  - numero: 3
+    titulo: Recluta participantes
+    descripcion: Selecciona entre 15 y 30 personas representativas del público objetivo. Pueden participar de forma presencial o remota.
+  - numero: 4
+    titulo: Ejecuta las sesiones
+    descripcion: Cada participante ordena las tarjetas en grupos que le parezcan lógicos y asigna un nombre a cada grupo.
+  - numero: 5
+    titulo: Registra los resultados
+    descripcion: Anota o exporta cómo cada participante organizó las tarjetas.
+  - numero: 6
+    titulo: Analiza los patrones
+    descripcion: Identifica qué tarjetas se agrupan juntas con más frecuencia. Herramientas como OptimalSort generan dendrogramas y matrices de similitud automáticamente.
+  - numero: 7
+    titulo: Extrae conclusiones
+    descripcion: Usa los patrones encontrados para proponer o ajustar la estructura de navegación del producto.
+
+resultado: >
+  Un mapa de agrupaciones que refleja el modelo mental de los usuarios.
+  Sirve como base para definir la estructura de navegación y la jerarquía de contenidos.
+
+dimensiones_usabilidad:
+  - Aprendizaje
+  - Eficiencia
