@@ -1,72 +1,61 @@
 id: card-sorting
-nombre: Card Sorting
-icono: layers
+nombre: Card sorting
 
-clasificacion: Inspección
+clasificacion: Prueba
+
 fases:
   - Descubrimiento
   - Prototipado
+
 duracion: media
-recursos: bajo
+
+recursos: medio
+
 costo_monetario: bajo
 
 num_usuarios_min: 15
-num_usuarios_max: 30
+num_usuarios_max: 0
+
 materiales:
-  - Tarjetas físicas o herramienta digital (OptimalSort, Maze)
-  - Bolígrafos (variante física)
-  - Espacio tranquilo o enlace a sesión remota
+  - Tarjetas físicas o software online de card sorting
+  - Tablero o mesa (si es presencial)
+  - Matriz de análisis (Excel/Hoja de cálculo)
+  - Grabadora de audio o vídeo (opcional)
 
 tiempos_detalle:
   - fase: Preparación
-    tiempo: 2-3 horas
+    tiempo: 4 horas
   - fase: Reclutamiento de participantes
-    tiempo: 3-5 días
-  - fase: Ejecución por sesión
-    tiempo: 20-40 minutos
+    tiempo: 5 horas
+  - fase: Ejecución
+    tiempo: 8 horas
   - fase: Análisis de resultados
-    tiempo: 2-4 horas
+    tiempo: 6 horas
 
 para_que_sirve:
-  - Diseñar o validar la arquitectura de información de un producto
-  - Decidir cómo organizar menús, categorías y secciones
-  - Descubrir cómo los usuarios agrupan conceptos mentalmente
+  - Diseñar la arquitectura de la información de un sitio web.
+  - Entender el modelo mental de los usuarios y cómo agrupan conceptos de forma natural.
+  - Definir la estructura de menús de navegación, categorías y etiquetas.
+  - Validar si la organización actual de un producto es intuitiva para la audiencia.
 
 para_que_no_sirve:
-  - Medir eficacia o eficiencia de uso
-  - Detectar problemas de interacción o interfaz visual
-  - Evaluar un producto ya desarrollado en detalle
+  - Definir la disposición visual o el diseño de la interfaz.
+  - Evaluar la usabilidad general de la navegación o si los usuarios se pierden.
+  - Descubrir necesidades profundas del usuario o flujos complejos de tareas.
 
 pasos:
   - numero: 1
-    titulo: Define el contexto
-    descripcion: Determina qué arquitectura quieres diseñar o validar y recopila los conceptos o elementos que van a ordenar los participantes.
+    titulo: Selección del dominio y preparación de tarjetas
+    descripcion: Identificar los contenidos o conceptos clave del sitio web y escribir cada uno en una tarjeta individual de forma clara.
   - numero: 2
-    titulo: Prepara las tarjetas
-    descripcion: Escribe cada concepto en una tarjeta. Lo habitual es entre 30 y 100 conceptos. En la variante abierta deja tarjetas en blanco para que los participantes añadan categorías propias.
+    titulo: Reclutamiento y sesión con participantes
+    descripcion: Reunir a los usuarios y pedirles que agrupen las tarjetas según su propio criterio lógico (abierto) o en categorías predefinidas (cerrado).
   - numero: 3
-    titulo: Recluta participantes
-    descripcion: Selecciona entre 15 y 30 personas representativas del público objetivo. Pueden participar de forma presencial o remota.
-  - numero: 4
-    titulo: Ejecuta las sesiones
-    descripcion: Cada participante ordena las tarjetas en grupos que le parezcan lógicos y asigna un nombre a cada grupo.
-  - numero: 5
-    titulo: Registra los resultados
-    descripcion: Anota o exporta cómo cada participante organizó las tarjetas.
-  - numero: 6
-    titulo: Analiza los patrones
-    descripcion: Identifica qué tarjetas se agrupan juntas con más frecuencia. Herramientas como OptimalSort generan dendrogramas y matrices de similitud automáticamente.
-  - numero: 7
-    titulo: Extrae conclusiones
-    descripcion: Usa los patrones encontrados para proponer o ajustar la estructura de navegación del producto.
+    titulo: Análisis estadístico de similitud
+    descripcion: Introducir los datos en una matriz para identificar patrones comunes de agrupación y diseñar la estructura final basada en los resultados más repetidos.
 
-resultado: >
-  Un mapa de agrupaciones que refleja el modelo mental de los usuarios.
-  Sirve como base para definir la estructura de navegación y la jerarquía de contenidos.
+resultado: Un mapa de arquitectura de la información optimizado y una propuesta de árbol de navegación que ha sido validada por los usuarios.
 
 dimensiones_usabilidad:
-  - Aprendizaje
+  - Facilidad de aprendizaje
   - Eficiencia
-
-# Nombre del archivo PDF en static/plantillas/ (dejar vacío si no hay plantilla)
-# plantilla: card-sorting.pdf

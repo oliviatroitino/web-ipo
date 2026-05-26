@@ -1,0 +1,60 @@
+id: cognitive-walkthrough
+nombre: Recorrido cognitivo
+
+clasificacion: Inspección
+
+fases:
+  - Evaluación
+
+duracion: corta
+
+recursos: bajo
+
+costo_monetario: bajo
+
+num_usuarios_min: 1
+num_usuarios_max: 4
+
+materiales:
+  - Prototipo de las pantallas que se van a probar (en Figma o bocetos)
+  - La lista exacta de pasos de la tarea que vamos a analizar (ej. "comprar un libro")
+  - El perfil definido del usuario tipo (para saber qué conocimientos previos tiene)
+  - Papel y boli para apuntar las respuestas a las 4 preguntas clave
+
+tiempos_detalle:
+  - fase: Preparación
+    tiempo: 2 horas
+  - fase: Reclutamiento de participantes
+    tiempo: 0 horas
+  - fase: Ejecución
+    tiempo: 2 horas
+  - fase: Análisis de resultados
+    tiempo: 1 hora
+
+para_que_sirve:
+  - Para meterte en la cabeza de un usuario nuevo y comprobar paso a paso si la interfaz es intuitiva o si la gente se va a perder la primera vez que la use.
+  - Sirve para pillar fallos de lógica en el flujo de pantallas antes de programar nada.
+
+para_que_no_sirve:
+  - No sirve para evaluar a usuarios expertos que ya se conocen la aplicación al dedillo.
+  - Tampoco sirve si buscas opiniones subjetivas (como si la app es bonita o si les gusta la marca).
+
+pasos:
+  - numero: 1
+    titulo: Definir la tarea y el usuario
+    descripcion: Elegimos una tarea crítica (como "recuperar contraseña") y escribimos el camino exacto de clics que hay que dar. Definimos también cuánto sabe el usuario que lo va a usar.
+  - numero: 2
+    titulo: Recorrer el flujo haciéndose las 4 preguntas
+    descripcion: Nos ponemos en la piel del usuario y, en cada clic del camino, los evaluadores respondemos a cuatro preguntas, como ¿Intentará el usuario hacer esto?, ¿Verá el botón?, ¿Entenderá que es el botón correcto? y ¿Se dará cuenta de que lo ha hecho bien?
+  - numero: 3
+    titulo: Anotar los bloqueos (muros cognitivos)
+    descripcion: Apuntamos en qué pasos del camino el usuario se quedaría atascado porque la interfaz no es clara o confunde.
+  - numero: 4
+    titulo: Proponer soluciones
+    descripcion: Revisamos los puntos críticos donde el usuario se pierde y rediseñamos el flujo (cambiando textos, moviendo botones o quitando pasos) para que sea más fácil de aprender.
+
+resultado: Un informe con el mapa de los puntos exactos del flujo donde un usuario nuevo se va a quedar atascado y sugerencias para hacer la interfaz más intuitiva.
+
+dimensiones_usabilidad:
+  - Facilidad de aprendizaje
+  - Eficiencia
