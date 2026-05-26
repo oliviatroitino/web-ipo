@@ -1,0 +1,120 @@
+{{define "title"}}Ayuda{{end}}
+
+{{define "content"}}
+<div class="help">
+
+  <header class="help-header">
+    <h1 class="help-header__titulo">¿Cómo te podemos ayudar?</h1>
+    <p class="help-header__subtitulo">
+      Guía para desarrolladores que quieren aplicar técnicas de usabilidad sin experiencia previa.
+    </p>
+  </header>
+
+  {{/* Guía por situación */}}
+  <section class="help-guia" aria-labelledby="guia-titulo">
+    <h2 id="guia-titulo" class="help-section__titulo">¿Qué técnica necesito?</h2>
+    <p class="help-section__intro">
+      Encuentra la técnica adecuada según en qué punto estás del proyecto.
+    </p>
+
+    <ul class="guia-lista">
+
+      <li class="guia-item">
+        <h3 class="guia-item__situacion">Quiero entender qué necesitan mis usuarios antes de diseñar</h3>
+        <p class="guia-item__desc">Útil en la fase inicial cuando todavía no tienes un prototipo.</p>
+        <ul class="guia-item__tecnicas">
+          <li><a href="/tecnicas/entrevistas-usuarios" class="guia-link">Entrevistas con usuarios</a></li>
+          <li><a href="/tecnicas/card-sorting" class="guia-link">Card Sorting</a></li>
+        </ul>
+      </li>
+
+      <li class="guia-item">
+        <h3 class="guia-item__situacion">Tengo un prototipo y quiero detectar problemas antes de desarrollar</h3>
+        <p class="guia-item__desc">Ideal cuando ya hay algo navegable pero no está en producción.</p>
+        <ul class="guia-item__tecnicas">
+          <li><a href="/tecnicas/think-aloud" class="guia-link">Think Aloud</a></li>
+          <li><a href="/tecnicas/evaluacion-heuristica" class="guia-link">Evaluación Heurística</a></li>
+        </ul>
+      </li>
+
+      <li class="guia-item">
+        <h3 class="guia-item__situacion">Quiero evaluar un producto ya construido con poco presupuesto</h3>
+        <p class="guia-item__desc">Opciones que no requieren herramientas de pago ni mucho tiempo de preparación.</p>
+        <ul class="guia-item__tecnicas">
+          <li><a href="/tecnicas/evaluacion-heuristica" class="guia-link">Evaluación Heurística</a></li>
+          <li><a href="/tecnicas/think-aloud" class="guia-link">Think Aloud</a></li>
+        </ul>
+      </li>
+
+      <li class="guia-item">
+        <h3 class="guia-item__situacion">No sé cómo organizar la navegación de mi producto</h3>
+        <p class="guia-item__desc">Cuando los menús, categorías o secciones no están claras.</p>
+        <ul class="guia-item__tecnicas">
+          <li><a href="/tecnicas/card-sorting" class="guia-link">Card Sorting</a></li>
+        </ul>
+      </li>
+
+    </ul>
+
+    <p class="help-guia__cta">
+      ¿No encuentras tu situación?
+      <a href="/?q=" class="help-guia__link">Explora todas las técnicas con los filtros</a>.
+    </p>
+  </section>
+
+  {{/* FAQs */}}
+  <section class="help-faqs" aria-labelledby="faqs-titulo">
+    <h2 id="faqs-titulo" class="help-section__titulo">Preguntas frecuentes</h2>
+
+    <dl class="faqs-lista">
+
+      <div class="faq-item">
+        <dt class="faq-item__pregunta">¿Cuántos usuarios necesito para hacer un test?</dt>
+        <dd class="faq-item__respuesta">
+          Depende de la técnica. Para un Think Aloud o test de usuario con prototipo, entre 5 y 8 participantes
+          detectan la mayoría de los problemas críticos. Para un Card Sorting necesitas entre 15 y 30.
+          Consulta el campo "Participantes" en la ficha de cada técnica.
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt class="faq-item__pregunta">¿Cómo funciona el buscador y los filtros?</dt>
+        <dd class="faq-item__respuesta">
+          En la página de inicio puedes escribir cualquier palabra en el buscador (nombre, objetivo, paso…)
+          y la web filtrará las técnicas que lo mencionen. También puedes combinar los cuatro filtros
+          — Clasificación, Fase, Recursos y Duración — para acotar los resultados.
+          Los filtros activos quedan en la URL, así que puedes guardar o compartir una búsqueda.
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt class="faq-item__pregunta">¿Qué diferencia hay entre Inspección, Prueba e Indagación?</dt>
+        <dd class="faq-item__respuesta">
+          <strong>Inspección</strong>: expertos revisan el producto sin usuarios (ej. Evaluación Heurística, Card Sorting). Rápida y barata.<br>
+          <strong>Prueba</strong>: usuarios reales interactúan con el producto mientras se observa (ej. Think Aloud, Test de usuario). Más reveladora pero requiere reclutamiento.<br>
+          <strong>Indagación</strong>: se recoge información sobre el contexto y necesidades sin evaluar un producto concreto (ej. Entrevistas). Útil en fases tempranas.
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt class="faq-item__pregunta">¿Cómo descargo una plantilla?</dt>
+        <dd class="faq-item__respuesta">
+          En la ficha de cada técnica, si está disponible, encontrarás un botón de descarga en la cabecera.
+          Las plantillas están en formato PDF listas para imprimir o rellenar digitalmente.
+        </dd>
+      </div>
+
+      <div class="faq-item">
+        <dt class="faq-item__pregunta">¿Puedo guardar técnicas para consultarlas después?</dt>
+        <dd class="faq-item__respuesta">
+          Sí. Desde la ficha de cualquier técnica puedes pulsar "Guardar" para añadirla a tu lista de favoritos.
+          Los favoritos se almacenan en tu navegador, así que persisten aunque cierres la pestaña.
+          Accede a ellos desde el enlace "Favoritos" del menú.
+        </dd>
+      </div>
+
+    </dl>
+  </section>
+
+</div>{{/* /.help */}}
+{{end}}

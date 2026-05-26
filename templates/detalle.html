@@ -1,0 +1,190 @@
+{{define "title"}}{{.Tecnica.Nombre}}{{end}}
+
+{{define "content"}}
+<div class="detalle">
+
+  {{/* Breadcrumb */}}
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <ol class="breadcrumb__list">
+      <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Inicio</a></li>
+      {{if .Tecnica.Fases}}
+      <li class="breadcrumb__item breadcrumb__item--sep" aria-hidden="true">›</li>
+      <li class="breadcrumb__item">
+        <a href="/?fases={{index .Tecnica.Fases 0}}" class="breadcrumb__link">{{index .Tecnica.Fases 0}}</a>
+      </li>
+      {{end}}
+      <li class="breadcrumb__item breadcrumb__item--sep" aria-hidden="true">›</li>
+      <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">{{.Tecnica.Nombre}}</li>
+    </ol>
+  </nav>
+
+  <div class="detalle__layout">
+
+    {{/* Sidebar — anclas a cada sección */}}
+    <aside class="detalle__sidebar" aria-label="Secciones de la técnica">
+      <nav class="sidebar-nav">
+        <p class="sidebar-nav__label">En esta página</p>
+        <ul class="sidebar-nav__list">
+          <li><a href="#pasos"          class="sidebar-nav__link">Cómo se lleva a cabo</a></li>
+          <li><a href="#descripcion"    class="sidebar-nav__link">Descripción</a></li>
+          <li><a href="#recursos"       class="sidebar-nav__link">Recursos</a></li>
+          <li><a href="#resultado"      class="sidebar-nav__link">Resultado</a></li>
+          <li><a href="#dimensiones"    class="sidebar-nav__link">Dimensiones</a></li>
+          {{if .Tecnica.Plantilla}}
+          <li><a href="#descargas"      class="sidebar-nav__link">Descargas</a></li>
+          {{end}}
+        </ul>
+      </nav>
+    </aside>
+
+    {{/* Contenido principal */}}
+    <article class="detalle__main">
+
+      {{/* Cabecera */}}
+      <header class="detalle__header">
+        <h1 class="detalle__nombre">{{.Tecnica.Nombre}}</h1>
+        <div class="detalle__chips">
+          <span class="chip chip--clasificacion">{{.Tecnica.Clasificacion}}</span>
+          {{range .Tecnica.Fases}}
+          <span class="chip chip--fase">{{.}}</span>
+          {{end}}
+          <span class="chip chip--recursos chip--recursos-{{.Tecnica.Recursos}}">{{.Tecnica.Recursos | title}}</span>
+        </div>
+        <div class="detalle__acciones">
+          <a href="/tecnicas/comparar?a={{.Tecnica.ID}}" class="btn btn--secondary">
+            Comparar
+          </a>
+          <button class="btn btn--secondary js-favorito" data-id="{{.Tecnica.ID}}" aria-label="Guardar en favoritos">
+            Guardar
+          </button>
+          {{if .Tecnica.Plantilla}}
+          <a href="/static/plantillas/{{.Tecnica.Plantilla}}" class="btn btn--secondary" download aria-label="Descargar plantilla en PDF">
+            Descargar plantilla
+          </a>
+          {{end}}
+        </div>
+      </header>
+
+      {{/* Sección: Pasos — primera para acceso rápido en móvil */}}
+      <details class="ficha-seccion" id="pasos" open>
+        <summary class="ficha-seccion__titulo">Cómo se lleva a cabo</summary>
+        <div class="ficha-seccion__cuerpo">
+          <ol class="ficha-pasos">
+            {{range .Tecnica.Pasos}}
+            <li class="ficha-paso">
+              <span class="ficha-paso__num">{{.Numero}}</span>
+              <div class="ficha-paso__contenido">
+                <strong class="ficha-paso__titulo">{{.Titulo}}</strong>
+                <p class="ficha-paso__desc">{{.Descripcion}}</p>
+              </div>
+            </li>
+            {{end}}
+          </ol>
+        </div>
+      </details>
+
+      {{/* Sección: Descripción */}}
+      <details class="ficha-seccion" id="descripcion">
+        <summary class="ficha-seccion__titulo">Descripción y contexto</summary>
+        <div class="ficha-seccion__cuerpo">
+          <h3>¿Para qué sirve?</h3>
+          <ul class="ficha-lista">
+            {{range .Tecnica.ParaQueSirve}}
+            <li>{{.}}</li>
+            {{end}}
+          </ul>
+          <h3>¿Para qué NO sirve?</h3>
+          <ul class="ficha-lista ficha-lista--negativa">
+            {{range .Tecnica.ParaQueNoSirve}}
+            <li>{{.}}</li>
+            {{end}}
+          </ul>
+        </div>
+      </details>
+
+      {{/* Sección: Recursos */}}
+      <details class="ficha-seccion" id="recursos">
+        <summary class="ficha-seccion__titulo">Recursos necesarios</summary>
+        <div class="ficha-seccion__cuerpo">
+          <dl class="ficha-dl">
+            <dt>Participantes</dt>
+            <dd>
+              {{if eq .Tecnica.NumUsuariosMax 0}}
+                {{.Tecnica.NumUsuariosMin}} o más
+              {{else}}
+                {{.Tecnica.NumUsuariosMin}}–{{.Tecnica.NumUsuariosMax}}
+              {{end}}
+            </dd>
+            <dt>Coste monetario</dt>
+            <dd>{{.Tecnica.CostoMonetario | title}}</dd>
+            <dt>Recursos globales</dt>
+            <dd>{{.Tecnica.Recursos | title}}</dd>
+          </dl>
+
+          {{if .Tecnica.TiemposDetalle}}
+          <h3>Tiempos estimados</h3>
+          <ul class="ficha-tiempos">
+            {{range .Tecnica.TiemposDetalle}}
+            <li class="ficha-tiempo">
+              <span class="ficha-tiempo__fase">{{.Fase}}</span>
+              <span class="ficha-tiempo__valor">{{.Tiempo}}</span>
+            </li>
+            {{end}}
+          </ul>
+          {{end}}
+
+          {{if .Tecnica.Materiales}}
+          <h3>Materiales</h3>
+          <ul class="ficha-lista">
+            {{range .Tecnica.Materiales}}
+            <li>{{.}}</li>
+            {{end}}
+          </ul>
+          {{end}}
+        </div>
+      </details>
+
+      {{/* Sección: Resultado */}}
+      <details class="ficha-seccion" id="resultado">
+        <summary class="ficha-seccion__titulo">Resultado / output</summary>
+        <div class="ficha-seccion__cuerpo">
+          <p>{{.Tecnica.Resultado}}</p>
+        </div>
+      </details>
+
+      {{/* Sección: Dimensiones */}}
+      <details class="ficha-seccion" id="dimensiones">
+        <summary class="ficha-seccion__titulo">Dimensiones de usabilidad evaluadas</summary>
+        <div class="ficha-seccion__cuerpo">
+          <ul class="ficha-chips">
+            {{range .Tecnica.DimensionesUsabilidad}}
+            <li><span class="chip">{{.}}</span></li>
+            {{end}}
+          </ul>
+        </div>
+      </details>
+
+      {{/* Sección: Descargas — solo si la técnica tiene plantilla */}}
+      {{if .Tecnica.Plantilla}}
+      <details class="ficha-seccion" id="descargas">
+        <summary class="ficha-seccion__titulo">Descargas</summary>
+        <div class="ficha-seccion__cuerpo">
+          <ul class="ficha-descargas">
+            <li class="ficha-descarga">
+              <div class="ficha-descarga__info">
+                <span class="ficha-descarga__nombre">Plantilla — {{.Tecnica.Nombre}}</span>
+                <span class="ficha-descarga__tipo">PDF</span>
+              </div>
+              <a href="/static/plantillas/{{.Tecnica.Plantilla}}" class="btn btn--secondary" download>
+                Descargar
+              </a>
+            </li>
+          </ul>
+        </div>
+      </details>
+      {{end}}
+
+    </article>{{/* /.detalle__main */}}
+  </div>{{/* /.detalle__layout */}}
+</div>{{/* /.detalle */}}
+{{end}}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireframe detalle escritorio v3 — Pasos primero</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:system-ui,-apple-system,sans-serif}
+body{background:#f1efe8;padding:32px;display:flex;justify-content:center}
+.frame{background:#fff;border:1px solid #e4e2db;border-radius:12px;overflow:hidden;font-size:13px;width:780px}
+.topbar{display:flex;align-items:center;padding:10px 16px;border-bottom:1px solid #e4e2db;gap:12px}
+.logo{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#1a1a18}
+.search-fake{flex:1;max-width:200px;background:#f1efe8;border:1px solid #e4e2db;border-radius:999px;padding:5px 10px;font-size:12px;color:#a3a39d;display:flex;align-items:center;gap:6px}
+.nav-links{margin-left:auto;display:flex;gap:14px;font-size:12px;color:#6b6b65}
+.nav-links span{text-decoration:underline;color:#1a1a18;font-weight:500}
+.body{display:grid;grid-template-columns:160px 1fr}
+.sidebar{border-right:1px solid #e4e2db;padding:14px 12px}
+.sidebar-label{font-size:10px;font-weight:600;color:#a3a39d;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+.sidebar-item{display:flex;align-items:center;gap:6px;padding:5px 7px;border-radius:6px;font-size:12px;color:#6b6b65;margin-bottom:2px}
+.sidebar-item.active{background:#f1efe8;color:#1a1a18;font-weight:500}
+.main{padding:16px 18px}
+.breadcrumb{font-size:11px;color:#a3a39d;margin-bottom:10px}
+.title{font-size:22px;font-weight:600;color:#1a1a18;margin-bottom:8px}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.chip{font-size:11px;padding:3px 8px;border-radius:999px;border:1px solid}
+.chip-blue{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+.chip-green{background:#f0fdf4;color:#166534;border-color:#bbf7d0}
+.chip-amber{background:#fefce8;color:#854d0e;border-color:#fde68a}
+.btns{display:flex;gap:8px;margin-bottom:14px}
+.btn{padding:6px 12px;border:1px solid #e4e2db;border-radius:8px;font-size:12px;background:#fff;color:#1a1a18;display:inline-flex;align-items:center;gap:5px}
+.section{border:1px solid #e4e2db;border-radius:8px;margin-bottom:8px;overflow:hidden}
+.section-hdr{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;font-size:13px;font-weight:600;color:#1a1a18}
+.section-body{background:#f9f8f6;padding:10px 12px;border-top:1px solid #e4e2db}
+.step{display:flex;align-items:flex-start;gap:8px;margin-bottom:10px}
+.step:last-child{margin-bottom:0}
+.step-num{width:20px;height:20px;border-radius:50%;background:#1a1a18;color:#fff;font-size:11px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.step-lines{flex:1}
+.line{height:8px;border-radius:4px;background:#c9c6bc;margin-bottom:5px}
+.line.dark{background:#1a1a18}
+.footer{border-top:1px solid #e4e2db;padding:10px 16px;display:flex;justify-content:space-between;font-size:11px;color:#a3a39d}
+</style>
+</head>
+<body>
+<div class="frame">
+  <div class="topbar">
+    <div class="logo"><i class="ti ti-notebook"></i> Fieldnotes</div>
+    <div class="search-fake"><i class="ti ti-search" style="font-size:12px"></i> Buscar técnica...</div>
+    <div class="nav-links"><span>Técnicas</span><span>Ayuda</span><span>Favoritos</span></div>
+  </div>
+  <div class="body">
+    <div class="sidebar">
+      <p class="sidebar-label">En esta página</p>
+      <div class="sidebar-item active"><i class="ti ti-list-numbers" style="font-size:13px"></i> Pasos</div>
+      <div class="sidebar-item"><i class="ti ti-info-circle" style="font-size:13px"></i> Descripción</div>
+      <div class="sidebar-item"><i class="ti ti-package" style="font-size:13px"></i> Recursos</div>
+      <div class="sidebar-item"><i class="ti ti-flag" style="font-size:13px"></i> Resultado</div>
+      <div class="sidebar-item"><i class="ti ti-chart-bar" style="font-size:13px"></i> Dimensiones</div>
+    </div>
+    <div class="main">
+      <div class="breadcrumb">Inicio › Evaluación › Card Sorting</div>
+      <div class="title">Card Sorting</div>
+      <div class="chips">
+        <span class="chip chip-blue">Inspección</span>
+        <span class="chip chip-green">Análisis de requisitos</span>
+        <span class="chip chip-amber">Bajo coste</span>
+      </div>
+      <div class="btns">
+        <div class="btn"><i class="ti ti-arrows-exchange"></i> Comparar</div>
+        <div class="btn"><i class="ti ti-heart"></i> Guardar</div>
+        <div class="btn"><i class="ti ti-download"></i> Plantilla</div>
+      </div>
+      <div class="section">
+        <div class="section-hdr"><span><i class="ti ti-list-numbers" style="margin-right:6px"></i>Pasos</span><i class="ti ti-chevron-up"></i></div>
+        <div class="section-body">
+          <div class="step"><div class="step-num">1</div><div class="step-lines"><div class="line dark" style="width:68%"></div><div class="line" style="width:88%"></div></div></div>
+          <div class="step"><div class="step-num">2</div><div class="step-lines"><div class="line dark" style="width:55%"></div><div class="line" style="width:75%"></div></div></div>
+          <div class="step"><div class="step-num">3</div><div class="step-lines"><div class="line dark" style="width:62%"></div><div class="line" style="width:50%"></div></div></div>
+        </div>
+      </div>
+      <div class="section"><div class="section-hdr"><span><i class="ti ti-info-circle" style="margin-right:6px"></i>Descripción</span><i class="ti ti-chevron-down"></i></div></div>
+      <div class="section"><div class="section-hdr"><span><i class="ti ti-package" style="margin-right:6px"></i>Recursos</span><i class="ti ti-chevron-down"></i></div></div>
+      <div class="section"><div class="section-hdr"><span><i class="ti ti-flag" style="margin-right:6px"></i>Resultado</span><i class="ti ti-chevron-down"></i></div></div>
+      <div class="section"><div class="section-hdr"><span><i class="ti ti-chart-bar" style="margin-right:6px"></i>Dimensiones</span><i class="ti ti-chevron-down"></i></div></div>
+    </div>
+  </div>
+  <div class="footer"><span>© 2026 Grupo 7 · UCJC</span><span>Ayuda &nbsp;·&nbsp; Interacción Persona-Ordenador</span></div>
+</div>
+</body>
+</html>

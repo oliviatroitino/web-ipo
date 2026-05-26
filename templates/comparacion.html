@@ -1,0 +1,164 @@
+{{define "title"}}
+  {{if .Tecnica2}}Comparar: {{.Tecnica.Nombre}} vs {{.Tecnica2.Nombre}}{{else}}Comparar técnicas{{end}}
+{{end}}
+
+{{define "content"}}
+<div class="comparacion">
+
+  {{/* Breadcrumb */}}
+  <nav class="breadcrumb" aria-label="Ruta de navegación">
+    <ol class="breadcrumb__list">
+      <li class="breadcrumb__item"><a href="/" class="breadcrumb__link">Inicio</a></li>
+      <li class="breadcrumb__item breadcrumb__item--sep" aria-hidden="true">›</li>
+      <li class="breadcrumb__item breadcrumb__item--current" aria-current="page">Comparar</li>
+    </ol>
+  </nav>
+
+  <header class="comparacion__header">
+    <h1 class="comparacion__titulo">Comparar técnicas</h1>
+  </header>
+
+  {{if .Tecnica2}}
+
+  {{/* ── Vista comparación completa ──────────────────────────────────────── */}}
+
+  {{/* Cabecera de columnas */}}
+  <div class="comparacion__columnas">
+
+    <div class="comparacion__col">
+      <h2 class="comparacion__col-nombre">{{.Tecnica.Nombre}}</h2>
+      <div class="comparacion__col-chips">
+        <span class="chip chip--clasificacion">{{.Tecnica.Clasificacion}}</span>
+        {{range .Tecnica.Fases}}
+        <span class="chip chip--fase">{{.}}</span>
+        {{end}}
+        <span class="chip chip--recursos chip--recursos-{{.Tecnica.Recursos}}">{{.Tecnica.Recursos | title}}</span>
+      </div>
+      <a href="/tecnicas/{{.Tecnica.ID}}" class="btn btn--ghost">Ver ficha completa</a>
+    </div>
+
+    <div class="comparacion__col">
+      <h2 class="comparacion__col-nombre">{{.Tecnica2.Nombre}}</h2>
+      <div class="comparacion__col-chips">
+        <span class="chip chip--clasificacion">{{.Tecnica2.Clasificacion}}</span>
+        {{range .Tecnica2.Fases}}
+        <span class="chip chip--fase">{{.}}</span>
+        {{end}}
+        <span class="chip chip--recursos chip--recursos-{{.Tecnica2.Recursos}}">{{.Tecnica2.Recursos | title}}</span>
+      </div>
+      <a href="/tecnicas/{{.Tecnica2.ID}}" class="btn btn--ghost">Ver ficha completa</a>
+    </div>
+
+  </div>{{/* /.comparacion__columnas */}}
+
+  {{/* Filas de comparación */}}
+  <dl class="comparacion__tabla">
+
+    <div class="comparacion__fila">
+      <dt class="comparacion__etiqueta">Clasificación</dt>
+      <dd class="comparacion__valor">{{.Tecnica.Clasificacion}}</dd>
+      <dd class="comparacion__valor">{{.Tecnica2.Clasificacion}}</dd>
+    </div>
+
+    <div class="comparacion__fila">
+      <dt class="comparacion__etiqueta">Fases</dt>
+      <dd class="comparacion__valor">{{range .Tecnica.Fases}}<span class="chip chip--fase">{{.}}</span> {{end}}</dd>
+      <dd class="comparacion__valor">{{range .Tecnica2.Fases}}<span class="chip chip--fase">{{.}}</span> {{end}}</dd>
+    </div>
+
+    <div class="comparacion__fila">
+      <dt class="comparacion__etiqueta">Recursos</dt>
+      <dd class="comparacion__valor"><span class="chip chip--recursos chip--recursos-{{.Tecnica.Recursos}}">{{.Tecnica.Recursos | title}}</span></dd>
+      <dd class="comparacion__valor"><span class="chip chip--recursos chip--recursos-{{.Tecnica2.Recursos}}">{{.Tecnica2.Recursos | title}}</span></dd>
+    </div>
+
+    <div class="comparacion__fila">
+      <dt class="comparacion__etiqueta">Participantes</dt>
+      <dd class="comparacion__valor">
+        {{if eq .Tecnica.NumUsuariosMax 0}}{{.Tecnica.NumUsuariosMin}} o más{{else}}{{.Tecnica.NumUsuariosMin}}–{{.Tecnica.NumUsuariosMax}}{{end}}
+      </dd>
+      <dd class="comparacion__valor">
+        {{if eq .Tecnica2.NumUsuariosMax 0}}{{.Tecnica2.NumUsuariosMin}} o más{{else}}{{.Tecnica2.NumUsuariosMin}}–{{.Tecnica2.NumUsuariosMax}}{{end}}
+      </dd>
+    </div>
+
+    <div class="comparacion__fila">
+      <dt class="comparacion__etiqueta">Coste monetario</dt>
+      <dd class="comparacion__valor">{{.Tecnica.CostoMonetario | title}}</dd>
+      <dd class="comparacion__valor">{{.Tecnica2.CostoMonetario | title}}</dd>
+    </div>
+
+    <div class="comparacion__fila">
+      <dt class="comparacion__etiqueta">¿Para qué sirve?</dt>
+      <dd class="comparacion__valor">
+        <ul class="ficha-lista">
+          {{range .Tecnica.ParaQueSirve}}<li>{{.}}</li>{{end}}
+        </ul>
+      </dd>
+      <dd class="comparacion__valor">
+        <ul class="ficha-lista">
+          {{range .Tecnica2.ParaQueSirve}}<li>{{.}}</li>{{end}}
+        </ul>
+      </dd>
+    </div>
+
+    <div class="comparacion__fila">
+      <dt class="comparacion__etiqueta">¿Para qué NO sirve?</dt>
+      <dd class="comparacion__valor">
+        <ul class="ficha-lista ficha-lista--negativa">
+          {{range .Tecnica.ParaQueNoSirve}}<li>{{.}}</li>{{end}}
+        </ul>
+      </dd>
+      <dd class="comparacion__valor">
+        <ul class="ficha-lista ficha-lista--negativa">
+          {{range .Tecnica2.ParaQueNoSirve}}<li>{{.}}</li>{{end}}
+        </ul>
+      </dd>
+    </div>
+
+    <div class="comparacion__fila">
+      <dt class="comparacion__etiqueta">Dimensiones evaluadas</dt>
+      <dd class="comparacion__valor">
+        {{range .Tecnica.DimensionesUsabilidad}}<span class="chip">{{.}}</span> {{end}}
+      </dd>
+      <dd class="comparacion__valor">
+        {{range .Tecnica2.DimensionesUsabilidad}}<span class="chip">{{.}}</span> {{end}}
+      </dd>
+    </div>
+
+  </dl>
+
+  <div class="comparacion__cambiar">
+    <p>¿Quieres comparar con otra técnica?</p>
+    <a href="/tecnicas/comparar?a={{.Tecnica.ID}}" class="btn btn--secondary">Cambiar segunda técnica</a>
+  </div>
+
+  {{else}}
+
+  {{/* ── Selector de segunda técnica ─────────────────────────────────────── */}}
+  <div class="comparacion__selector">
+    <p class="comparacion__selector-intro">
+      Estás comparando <strong>{{.Tecnica.Nombre}}</strong>. Elige la segunda técnica:
+    </p>
+    <ul class="comparacion__lista" role="list">
+      {{range .Tecnicas}}
+        {{if ne .ID $.Tecnica.ID}}
+        <li>
+          <a href="/tecnicas/comparar?a={{$.Tecnica.ID}}&b={{.ID}}" class="comparacion__opcion">
+            <span class="comparacion__opcion-nombre">{{.Nombre}}</span>
+            <div class="comparacion__opcion-chips">
+              <span class="chip chip--clasificacion">{{.Clasificacion}}</span>
+              {{range .Fases}}<span class="chip chip--fase">{{.}}</span>{{end}}
+              <span class="chip chip--recursos chip--recursos-{{.Recursos}}">{{.Recursos | title}}</span>
+            </div>
+          </a>
+        </li>
+        {{end}}
+      {{end}}
+    </ul>
+  </div>
+
+  {{end}}
+
+</div>{{/* /.comparacion */}}
+{{end}}

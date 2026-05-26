@@ -1,0 +1,67 @@
+id: evaluacion-heuristica
+nombre: Evaluación Heurística
+icono: clipboard-list
+
+clasificacion: Inspección
+fases:
+  - Prototipado
+  - Evaluación
+  - Implementación
+duracion: media
+recursos: bajo
+costo_monetario: bajo
+
+num_usuarios_min: 3
+num_usuarios_max: 5
+materiales:
+  - Lista de heurísticas (ej. las 10 de Nielsen)
+  - Acceso al prototipo o producto
+  - Plantilla de registro de problemas
+
+tiempos_detalle:
+  - fase: Preparación
+    tiempo: 1 hora
+  - fase: Inspección individual
+    tiempo: 1-2 horas por evaluador
+  - fase: Puesta en común
+    tiempo: 1-2 horas
+  - fase: Informe de resultados
+    tiempo: 1-3 horas
+
+para_que_sirve:
+  - Detectar problemas de usabilidad sin necesidad de reclutar usuarios externos
+  - Evaluar un prototipo o producto en cualquier fase del desarrollo
+  - Obtener resultados rápidos con un equipo pequeño de evaluadores expertos
+
+para_que_no_sirve:
+  - Sustituir las pruebas con usuarios reales
+  - Detectar problemas específicos de contexto o flujos de trabajo complejos
+  - Medir rendimiento cuantitativo
+
+pasos:
+  - numero: 1
+    titulo: Elige las heurísticas
+    descripcion: Selecciona el conjunto de principios que usarás. Las más comunes son las 10 heurísticas de Nielsen. Puedes adaptarlas al tipo de producto.
+  - numero: 2
+    titulo: Define el alcance
+    descripcion: Decide qué partes del producto se van a inspeccionar. En proyectos grandes, acota a las secciones más críticas.
+  - numero: 3
+    titulo: Inspección individual
+    descripcion: Cada evaluador recorre el producto de forma independiente y registra los problemas encontrados indicando qué heurística incumple y su severidad (1-4).
+  - numero: 4
+    titulo: Puesta en común
+    descripcion: Los evaluadores comparten sus hallazgos, eliminan duplicados y acuerdan la severidad final de cada problema.
+  - numero: 5
+    titulo: Prioriza y comunica
+    descripcion: Ordena los problemas por severidad e impacto en el usuario. Presenta los resultados con capturas de pantalla y recomendaciones concretas.
+
+resultado: >
+  Lista de problemas de usabilidad clasificados por heurística incumplida y severidad,
+  con recomendaciones de mejora priorizadas.
+
+dimensiones_usabilidad:
+  - Eficacia
+  - Eficiencia
+  - Aprendizaje
+
+plantilla: evaluacion-heuristica.pdf

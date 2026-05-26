@@ -1,0 +1,143 @@
+const fs = require('fs');
+const path = require('path');
+const yaml = require('js-yaml');
+
+const inputDir = path.join(__dirname, 'web-ipo-olivia-troitino', 'web-ipo-olivia-troitino', 'content', 'tecnicas');
+const outputDir = path.join(__dirname, 'web-ejecutable-doble-clic', 'technique');
+
+const files = fs.readdirSync(inputDir).filter(f => f.endsWith('.yaml'));
+
+for (const file of files) {
+  const content = fs.readFileSync(path.join(inputDir, file), 'latin1');
+  const data = yaml.load(content);
+
+  const html = `<!DOCTYPE html>
+<html lang="es" class="geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="../_next/static/chunks/0sh1x96ago6wx.css" />
+  <title>${data.nombre} - Técnica de UX</title>
+  <style>nav.sticky.top-0 { display: none !important; } body, html { background: radial-gradient(ellipse at center, #c4b5fd 0%, #ddd6fe 30%, #ede9fe 55%, #f5f3ff 75%, #ffffff 100%) !important; min-height: 100vh; } main.min-h-screen { background: transparent !important; } .bg-slate-50 { background: transparent !important; } footer { background: rgba(255,255,255,0.4) !important; backdrop-filter: blur(8px); border-color: rgba(203,196,227,0.3) !important; } .header-gradient { background: radial-gradient(ellipse at center, #c4b5fd 0%, #ddd6fe 40%, #ede9fe 70%, #f5f3ff 100%) !important; } .header-gradient h1, .header-gradient .text-white { color: #4c1d95 !important; } .header-gradient a { color: #7c3aed !important; } .header-gradient a:hover { color: #4c1d95 !important; } .header-gradient .bg-blue-500 { background-color: #8b5cf6 !important; } .header-gradient .border-blue-400 { border-color: #a78bfa !important; } .step-purple { background-color: #ede9fe !important; color: #7c3aed !important; } .result-purple { background-color: #f5f3ff !important; border-color: #ddd6fe !important; } .bg-white { background: rgba(255,255,255,0.7) !important; backdrop-filter: blur(4px); }</style>
+</head>
+<body class="min-h-full flex flex-col bg-slate-50">
+  <main class="min-h-screen">
+    <!-- Header -->
+    <header class="header-gradient bg-blue-600 text-white pt-16 pb-12">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="mb-4">
+          <a href="../index.html" class="inline-flex items-center text-blue-200 hover:text-white transition-colors text-sm font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="m15 18-6-6 6-6"/></svg>
+            Volver al inicio
+          </a>
+        </div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-3 py-1 bg-blue-500 rounded-full text-xs font-semibold tracking-wider uppercase">${data.clasificacion}</span>
+          ${data.fases.map(f => `<span class="px-3 py-1 border border-blue-400 rounded-full text-xs font-semibold tracking-wider uppercase">${f}</span>`).join('')}
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">${data.nombre}</h1>
+      </div>
+    </header>
+
+    <div class="max-w-4xl mx-auto px-6 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Main Content -->
+        <div class="md:col-span-2 space-y-12">
+          
+          <section>
+            <h2 class="text-2xl font-semibold text-slate-900 mb-4 border-b pb-2">¿Para qué sirve?</h2>
+            <ul class="space-y-2">
+              ${data.para_que_sirve.map(item => `<li class="flex items-start"><svg class="w-5 h-5 text-green-500 mr-2 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg><span class="text-slate-700">${item}</span></li>`).join('')}
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-semibold text-slate-900 mb-4 border-b pb-2">¿Para qué NO sirve?</h2>
+            <ul class="space-y-2">
+              ${data.para_que_no_sirve.map(item => `<li class="flex items-start"><svg class="w-5 h-5 text-red-500 mr-2 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg><span class="text-slate-700">${item}</span></li>`).join('')}
+            </ul>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-semibold text-slate-900 mb-6 border-b pb-2">Pasos a seguir</h2>
+            <div class="space-y-6">
+              ${data.pasos.map(paso => `
+                <div class="flex gap-4">
+                  <div class="flex flex-col items-center">
+                    <div class="w-8 h-8 rounded-full step-purple bg-blue-100 text-blue-600 flex items-center justify-center font-bold">${paso.numero}</div>
+                    <div class="w-px h-full bg-slate-200 mt-2"></div>
+                  </div>
+                  <div class="pb-6">
+                    <h3 class="text-lg font-semibold text-slate-900 mb-2">${paso.titulo}</h3>
+                    <p class="text-slate-600 leading-relaxed">${paso.descripcion}</p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+
+          <section>
+            <h2 class="text-2xl font-semibold text-slate-900 mb-4 border-b pb-2">Resultado esperado</h2>
+            <div class="result-purple bg-blue-50 border border-blue-100 p-6 rounded-xl">
+              <p class="text-slate-800 leading-relaxed">${data.resultado}</p>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-8">
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h3 class="font-semibold text-slate-900 mb-4 uppercase tracking-wider text-sm">Detalles Técnicos</h3>
+            <div class="space-y-4 text-sm">
+              <div class="flex justify-between items-center border-b pb-2">
+                <span class="text-slate-500">Duración</span>
+                <span class="font-medium text-slate-900 capitalize">${data.duracion}</span>
+              </div>
+              <div class="flex justify-between items-center border-b pb-2">
+                <span class="text-slate-500">Recursos</span>
+                <span class="font-medium text-slate-900 capitalize">${data.recursos}</span>
+              </div>
+              <div class="flex justify-between items-center border-b pb-2">
+                <span class="text-slate-500">Costo</span>
+                <span class="font-medium text-slate-900 capitalize">${data.costo_monetario}</span>
+              </div>
+              <div class="flex justify-between items-center border-b pb-2">
+                <span class="text-slate-500">Participantes</span>
+                <span class="font-medium text-slate-900">${data.num_usuarios_min} - ${data.num_usuarios_max}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h3 class="font-semibold text-slate-900 mb-4 uppercase tracking-wider text-sm">Materiales necesarios</h3>
+            <ul class="list-disc list-inside text-sm text-slate-600 space-y-2">
+              ${data.materiales.map(m => `<li>${m}</li>`).join('')}
+            </ul>
+          </div>
+          
+          <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+            <h3 class="font-semibold text-slate-900 mb-4 uppercase tracking-wider text-sm">Dimensiones de Usabilidad</h3>
+            <div class="flex flex-wrap gap-2">
+              ${data.dimensiones_usabilidad.map(d => `<span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs font-medium">${d}</span>`).join('')}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <footer class="w-full border-t border-slate-200 bg-white mt-auto">
+    <div class="max-w-7xl mx-auto px-6 py-8 flex flex-col items-center text-center">
+      <p class="text-xs text-slate-400">© 2026 UX Mastery. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>`;
+
+  const outPath = path.join(outputDir, data.id + '.html');
+  fs.writeFileSync(outPath, html, 'utf8');
+  console.log('Generated:', outPath);
+}

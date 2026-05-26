@@ -1,0 +1,149 @@
+{{define "content"}}
+<div class="home">
+
+  <section class="home-hero">
+    <h1 class="home-hero__title">Técnicas de usabilidad</h1>
+    <p class="home-hero__subtitle">
+      Guía práctica para desarrolladores que quieren tomar decisiones centradas en el usuario o evaluar sus prototipos.
+    </p>
+  </section>
+
+  <section class="home-listado" aria-label="Catálogo de técnicas">
+    <form class="filter-form" method="get" action="/" role="search">
+
+      {{/* Buscador */}}
+      <div class="filter-search">
+        <label for="q" class="sr-only">Buscar técnica</label>
+        <input
+          type="search"
+          id="q"
+          name="q"
+          class="filter-search__input"
+          placeholder="Buscar técnica..."
+          value="{{.Query}}"
+          autocomplete="off"
+        >
+      </div>
+
+      {{/* Barra móvil: buscador ya está arriba, esto añade el toggle */}}
+      <div class="filter-mobile-bar">
+        <button type="button"
+          class="btn btn--secondary js-filter-toggle"
+          aria-expanded="{{if or .Filtros.Clasificacion .Filtros.Fases .Filtros.Recursos .Filtros.Duracion}}true{{else}}false{{end}}"
+          aria-controls="filter-panel">
+          Filtrar
+          {{if or .Filtros.Clasificacion .Filtros.Fases .Filtros.Recursos .Filtros.Duracion}}
+          <span class="filter-badge" aria-label="Filtros activos"></span>
+          {{end}}
+        </button>
+        <a href="/" class="btn {{if not (or .Filtros.Clasificacion .Filtros.Fases .Filtros.Recursos .Filtros.Duracion)}}btn--primary{{end}}">Todas</a>
+      </div>
+
+      {{/* Panel de filtros — visible siempre en escritorio, toggle en móvil */}}
+      <div class="filter-panel {{if or .Filtros.Clasificacion .Filtros.Fases .Filtros.Recursos .Filtros.Duracion}}is-open{{end}}" id="filter-panel">
+
+      {{/* Grupos de filtros */}}
+      <div class="filter-groups">
+
+        <details class="filter-group" {{if .Filtros.Clasificacion}}open{{end}}>
+          <summary class="filter-group__label">Clasificación</summary>
+          <div class="filter-group__options">
+            {{range $val := slice "Inspección" "Prueba" "Indagación"}}
+            <label class="filter-option">
+              <input type="checkbox" name="clasificacion" value="{{$val}}"
+                {{if inSlice $.Filtros.Clasificacion $val}}checked{{end}}>
+              {{$val}}
+            </label>
+            {{end}}
+          </div>
+        </details>
+
+        <details class="filter-group" {{if .Filtros.Fases}}open{{end}}>
+          <summary class="filter-group__label">Fase</summary>
+          <div class="filter-group__options">
+            {{range $val := slice "Descubrimiento" "Prototipado" "Evaluación" "Implementación"}}
+            <label class="filter-option">
+              <input type="checkbox" name="fases" value="{{$val}}"
+                {{if inSlice $.Filtros.Fases $val}}checked{{end}}>
+              {{$val}}
+            </label>
+            {{end}}
+          </div>
+        </details>
+
+        <details class="filter-group" {{if .Filtros.Recursos}}open{{end}}>
+          <summary class="filter-group__label">Recursos</summary>
+          <div class="filter-group__options">
+            {{range $val := slice "bajo" "medio" "alto"}}
+            <label class="filter-option">
+              <input type="checkbox" name="recursos" value="{{$val}}"
+                {{if inSlice $.Filtros.Recursos $val}}checked{{end}}>
+              {{$val | title}}
+            </label>
+            {{end}}
+          </div>
+        </details>
+
+        <details class="filter-group" {{if .Filtros.Duracion}}open{{end}}>
+          <summary class="filter-group__label">Duración</summary>
+          <div class="filter-group__options">
+            {{range $val := slice "corta" "media" "larga"}}
+            <label class="filter-option">
+              <input type="checkbox" name="duracion" value="{{$val}}"
+                {{if inSlice $.Filtros.Duracion $val}}checked{{end}}>
+              {{$val | title}}
+            </label>
+            {{end}}
+          </div>
+        </details>
+
+      </div>{{/* /.filter-groups */}}
+
+      <div class="filter-actions">
+        <button type="submit" class="btn btn--primary">Aplicar filtros</button>
+        <a href="/" class="btn btn--ghost">Limpiar</a>
+      </div>
+
+      </div>{{/* /.filter-panel */}}
+
+    </form>{{/* /.filter-form */}}
+
+    {{/* Resultado */}}
+    <div class="tecnicas-resultado">
+      <p class="tecnicas-count">
+        {{len .Tecnicas}} técnica{{if ne (len .Tecnicas) 1}}s{{end}}
+      </p>
+
+      {{if .Tecnicas}}
+        <ul class="tecnicas-grid" role="list">
+          {{range .Tecnicas}}
+          <li class="tecnica-card">
+            <a href="/tecnicas/{{.ID}}" class="tecnica-card__link">
+              <span class="tecnica-card__categoria">{{.Clasificacion}}</span>
+              <div class="tecnica-card__encabezado">
+                {{if .Icono}}
+                <div class="tecnica-card__icono">
+                  <i data-lucide="{{.Icono}}"></i>
+                </div>
+                {{end}}
+                <h2 class="tecnica-card__nombre">{{.Nombre}}</h2>
+              </div>
+              <div class="tecnica-card__chips">
+                {{range .Fases}}
+                <span class="chip chip--fase">{{.}}</span>
+                {{end}}
+                <span class="chip chip--recursos chip--recursos-{{.Recursos}}">{{.Recursos | title}}</span>
+              </div>
+            </a>
+          </li>
+          {{end}}
+        </ul>
+      {{else}}
+        <p class="tecnicas-empty">No hay técnicas que coincidan con los filtros seleccionados.</p>
+      {{end}}
+    </div>{{/* /.tecnicas-resultado */}}
+
+  </section>
+
+</div>{{/* /.home */}}
+{{end}}

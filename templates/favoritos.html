@@ -1,0 +1,41 @@
+{{define "title"}}Favoritos{{end}}
+
+{{define "content"}}
+<div class="favoritos">
+
+  <header class="favoritos-header">
+    <h1 class="favoritos-header__titulo">Técnicas guardadas</h1>
+    <p class="favoritos-header__subtitulo">Las técnicas que has guardado aparecen aquí.</p>
+  </header>
+
+  <section class="favoritos-listado" aria-label="Técnicas guardadas">
+    {{if .Tecnicas}}
+      <p class="tecnicas-count">
+        {{len .Tecnicas}} técnica{{if ne (len .Tecnicas) 1}}s{{end}} guardada{{if ne (len .Tecnicas) 1}}s{{end}}
+      </p>
+      <ul class="tecnicas-grid" role="list">
+        {{range .Tecnicas}}
+        <li class="tecnica-card">
+          <a href="/tecnicas/{{.ID}}" class="tecnica-card__link">
+            <h2 class="tecnica-card__nombre">{{.Nombre}}</h2>
+            <div class="tecnica-card__chips">
+              <span class="chip chip--clasificacion">{{.Clasificacion}}</span>
+              {{range .Fases}}
+              <span class="chip chip--fase">{{.}}</span>
+              {{end}}
+              <span class="chip chip--recursos chip--recursos-{{.Recursos}}">{{.Recursos | title}}</span>
+            </div>
+          </a>
+        </li>
+        {{end}}
+      </ul>
+    {{else}}
+      <div class="favoritos-vacio">
+        <p>Todavía no has guardado ninguna técnica.</p>
+        <a href="/" class="btn btn--primary">Explorar técnicas</a>
+      </div>
+    {{end}}
+  </section>
+
+</div>
+{{end}}

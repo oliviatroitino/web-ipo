@@ -1,0 +1,60 @@
+\babel@toc {nil}{}\relax 
+\contentsline {chapter}{Aclaraciones}{1}{chapter*.1}%
+\contentsline {chapter}{\numberline {1}Análisis y Planificación}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Contenido}{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Usuario}{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Producción}{5}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Requisitos}{5}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Análisis de productos existentes}{5}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Usability Body of Knowledge (UBK)}{6}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}No Solo Usabilidad (NSU)}{7}{subsection.1.5.2}%
+\contentsline {subsection}{\numberline {1.5.3}Service Design Tools (SDT)}{8}{subsection.1.5.3}%
+\contentsline {subsection}{\numberline {1.5.4}Conclusiones del análisis}{9}{subsection.1.5.4}%
+\contentsline {chapter}{\numberline {2}Modelado del Usuario}{10}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Personas y Scenarios}{10}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Usuarios Focales}{11}{subsection.2.1.1}%
+\contentsline {subsubsection}{Marcos}{11}{section*.3}%
+\contentsline {subsubsection}{Alejandro}{12}{section*.4}%
+\contentsline {subsubsection}{Elena}{12}{section*.5}%
+\contentsline {subsubsection}{Li Xiaoxiao}{13}{section*.6}%
+\contentsline {subsection}{\numberline {2.1.2}Usuarios Secundarios}{13}{subsection.2.1.2}%
+\contentsline {subsubsection}{Giovanna}{13}{section*.7}%
+\contentsline {subsubsection}{Lucía}{14}{section*.8}%
+\contentsline {subsubsection}{Javier}{14}{section*.9}%
+\contentsline {subsubsection}{Laura}{15}{section*.10}%
+\contentsline {subsection}{\numberline {2.1.3}Usuario Involucrado}{15}{subsection.2.1.3}%
+\contentsline {subsubsection}{Sofía}{15}{section*.11}%
+\contentsline {subsection}{\numberline {2.1.4}Usuario No Prioritario}{16}{subsection.2.1.4}%
+\contentsline {subsubsection}{Carlos}{16}{section*.12}%
+\contentsline {section}{\numberline {2.2}Casos de Uso}{16}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}CU1: Consultar la ficha de una técnica concreta para ejecutarla}{16}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}CU2: Guardar técnicas de usabilidad para consultas posteriores}{17}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}CU3: Diagnóstico y prescripción de técnicas de evaluación}{17}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}CU4: Calcular el número de usuarios necesarios y generar mensaje de reclutamiento}{18}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}CU5: Descargar recursos y plantillas para la ejecución ágil de una técnica}{18}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}CU6: Explorar la web de forma casual}{19}{subsection.2.2.6}%
+\contentsline {chapter}{\numberline {3}Diseño}{20}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Affinity Diagram}{20}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Paso 1: Aportación individual de notas}{20}{subsection.3.1.1}%
+\contentsline {paragraph}{Olivia Troitiño}{21}{section*.13}%
+\contentsline {paragraph}{Rodrigo Coronel}{21}{section*.14}%
+\contentsline {paragraph}{Víctor Gonzalo}{22}{section*.15}%
+\contentsline {paragraph}{Eloy Sánchez-Viedma}{22}{section*.16}%
+\contentsline {paragraph}{Nube Arsuaga}{22}{section*.17}%
+\contentsline {paragraph}{Xianlong Wu (昱龙吴)}{22}{section*.18}%
+\contentsline {subsection}{\numberline {3.1.2}Paso 2: Agrupación silenciosa y colaborativa}{22}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Paso 3: Debate y nombrado de los grupos}{23}{subsection.3.1.3}%
+\contentsline {subsubsection}{Diseño Visual}{23}{section*.19}%
+\contentsline {subsubsection}{Información Clara y Concisa}{24}{section*.20}%
+\contentsline {subsubsection}{Problemas a Evitar}{24}{section*.21}%
+\contentsline {subsubsection}{Recursos / Accesibilidad}{24}{section*.22}%
+\contentsline {subsubsection}{Features (Organización, Filtrado y Funcionalidades)}{24}{section*.23}%
+\contentsline {section}{\numberline {3.2}De las conclusiones del diseño a los wireframes}{24}{section.3.2}%
+\contentsline {chapter}{\numberline {4}Prototipado}{26}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Wireframes — Mobile-first}{26}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Wireframes — Desktop}{27}{section.4.2}%
+\contentsline {chapter}{\numberline {A}Ficha de Técnica}{29}{appendix.A}%
+\contentsline {chapter}{\numberline {B}Templates}{30}{appendix.B}%
+\contentsline {section}{\numberline {B.1}Plantilla Persona-Scenario}{30}{section.B.1}%
+\contentsline {section}{\numberline {B.2}Plantilla Caso de Uso}{30}{section.B.2}%
+\contentsline {chapter}{\numberline {C}Enunciado del Proyecto}{31}{appendix.C}%

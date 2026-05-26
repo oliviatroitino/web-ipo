@@ -1,0 +1,62 @@
+id: entrevistas-usuarios
+nombre: Entrevistas con usuarios
+icono: users
+
+clasificacion: Indagación
+fases:
+  - Descubrimiento
+duracion: larga
+recursos: medio
+costo_monetario: bajo
+
+num_usuarios_min: 5
+num_usuarios_max: 15
+materiales:
+  - Guión de entrevista semiestructurado
+  - Grabadora de audio (con consentimiento del participante)
+  - Sala tranquila o herramienta de videollamada
+
+tiempos_detalle:
+  - fase: Preparación del guión
+    tiempo: 2-4 horas
+  - fase: Reclutamiento de participantes
+    tiempo: 3-7 días
+  - fase: Entrevista por participante
+    tiempo: 45-90 minutos
+  - fase: Transcripción y análisis
+    tiempo: 2-4 horas por entrevista
+
+para_que_sirve:
+  - Entender las necesidades, motivaciones y contexto de uso de los usuarios
+  - Descubrir problemas que los usuarios no expresarían en un cuestionario
+  - Obtener información cualitativa profunda antes de diseñar o prototipar
+
+para_que_no_sirve:
+  - Obtener datos estadísticamente representativos
+  - Evaluar una interfaz ya construida
+  - Proyectos con plazos muy ajustados
+
+pasos:
+  - numero: 1
+    titulo: Define los objetivos
+    descripcion: Determina qué quieres aprender. Cada pregunta del guión debe responder a un objetivo concreto de investigación.
+  - numero: 2
+    titulo: Prepara el guión
+    descripcion: Redacta preguntas abiertas agrupadas por tema. Empieza por preguntas de contexto general y ve hacia lo específico. Evita preguntas de sí/no.
+  - numero: 3
+    titulo: Recluta participantes
+    descripcion: Selecciona personas que representen a tu usuario objetivo. Busca diversidad dentro del perfil target.
+  - numero: 4
+    titulo: Conduce la entrevista
+    descripcion: Sigue el guión de forma flexible. Escucha activamente, no interrumpas y usa el silencio para dejar espacio al participante. Profundiza con "¿por qué?" y "¿puedes contarme más?".
+  - numero: 5
+    titulo: Analiza los datos
+    descripcion: Transcribe o resume cada entrevista. Agrupa los hallazgos por temas con un diagrama de afinidad para identificar patrones comunes.
+
+resultado: >
+  Conjunto de insights sobre necesidades, comportamientos y contexto de los usuarios,
+  generalmente sintetizados en un diagrama de afinidad o en fichas de hallazgos.
+
+dimensiones_usabilidad:
+  - Satisfacción
+  - Aprendizaje
