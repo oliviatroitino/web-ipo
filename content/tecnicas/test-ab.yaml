@@ -1,0 +1,99 @@
+---
+# 1. Test A/B
+id: test-ab
+nombre: Test A/B
+clasificacion: Prueba
+descripcion_corta: >
+  Experimento controlado que divide el tráfico real entre dos versiones
+  de un diseño (A y B) para determinar estadísticamente cuál convierte mejor.
+fases:
+  - Implementación
+duracion: larga
+tiempo_total_estimado: "3 a 5 semanas"
+recursos: medio
+costo_monetario: medio
+num_usuarios_min: 1000
+num_usuarios_max: null
+materiales:
+  - Software de experimentación (VWO, Optimizely, Adobe Target, Dynamic Yield)
+  - Herramienta de analítica web (Google Analytics, Mixpanel, Amplitude)
+  - Dos versiones (A y B) de un diseño o componente completamente programado
+  - Calculadora de significancia estadística (ej. evan-miller.org)
+tiempos_detalle:
+  - fase: Definición de objetivo e hipótesis
+    tiempo: 8 horas
+  - fase: Configuración en software y definición de métricas
+    tiempo: 4 horas
+  - fase: Recolección de tráfico (Ejecución)
+    tiempo: 2 a 4 semanas
+  - fase: Análisis de resultados estadísticos
+    tiempo: 4 horas
+para_que_sirve:
+  - Validar qué versión de un diseño convierte mejor con usuarios reales en producción.
+  - Tomar decisiones de diseño basadas en datos estadísticos, no en opiniones o intuiciones.
+  - Optimizar llamadas a la acción (CTAs), textos, layouts o flujos de compra.
+  - Reducir el riesgo de lanzar cambios de diseño sin evidencia cuantitativa.
+para_que_no_sirve:
+  - Entender el "porqué" detrás del comportamiento del usuario (para eso usar entrevistas o Contextual Inquiry).
+  - Probar prototipos estáticos o de baja fidelidad (requiere tráfico real).
+  - Descubrir nuevos problemas de usabilidad cualitativos.
+  - Productos con poco tráfico (menos de 1000 usuarios activos por semana).
+cuando_usarlo: >
+  Cuando ya existe una hipótesis concreta sobre un elemente específico de la interfaz
+  y el producto tiene suficiente tráfico para alcanzar significancia estadística en
+  un plazo razonable (2-4 semanas).
+advertencias:
+  - No terminar el test antes de alcanzar el tamaño de muestra calculado (error de detención temprana).
+  - Probar solo UN elemento por experimento; cambios múltiples requieren test multivariante (MVT).
+  - Evitar lanzar tests en períodos de tráfico atípico (rebajas, campañas puntuales).
+  - La significancia estadística recomendada es del 95% (p < 0.05) antes de declarar un ganador.
+pasos:
+  - numero: 1
+    titulo: Definición del objetivo
+    descripcion: >
+      Identificar claramente qué problema se quiere resolver y qué métrica principal
+      se espera mejorar (ej. incrementar la tasa de conversión del checkout, reducir
+      el abandono en el formulario de registro). El objetivo debe ser único y medible.
+  - numero: 2
+    titulo: Planteamiento de hipótesis
+    descripcion: >
+      Formular una suposición concreta sobre un único elemento a modificar siguiendo
+      la estructura: "Si [cambio], entonces [resultado esperado], porque [razonamiento]".
+      Ejemplo: "Si cambio el CTA de 'Enviar' a 'Obtener mi presupuesto gratis',
+      aumentarán los clics un 15%, porque el texto comunica valor en lugar de acción."
+      No probar múltiples cambios simultáneos.
+  - numero: 3
+    titulo: Asignación de métricas primarias y secundarias
+    descripcion: >
+      Definir antes del lanzamiento la métrica primaria (la que determinará el ganador)
+      y métricas secundarias de control (para detectar efectos negativos inesperados).
+      Ejemplo: métrica primaria = tasa de clics en CTA; métrica secundaria = tasa de
+      rebote de la página siguiente. Las métricas aisladas no significan nada sin
+      contexto ni interpretación.
+  - numero: 4
+    titulo: Cálculo del tamaño de muestra y duración
+    descripcion: >
+      Usar una calculadora de potencia estadística para determinar cuántos usuarios
+      necesita cada variante antes de lanzar. Factores clave: tasa de conversión actual
+      (baseline), mejora mínima detectable (MDE) y nivel de significancia deseado (95%).
+      Nunca finalizar el test antes de alcanzar este número, aunque los resultados
+      parezcan claros.
+  - numero: 5
+    titulo: Lanzamiento y distribución de tráfico
+    descripcion: >
+      Configurar el software para repartir el tráfico aleatoriamente entre la versión
+      original (A) y la variante (B). La distribución no tiene que ser 50/50; puede ser
+      90/10 si se quiere proteger la experiencia mayoritaria mientras se prueba.
+      Asegurarse de que la asignación de usuarios sea estable (mismo usuario siempre
+      ve la misma variante) para evitar contaminación de datos.
+  - numero: 6
+    titulo: Análisis e implementación
+    descripcion: >
+      Al alcanzar el tamaño de muestra, analizar los resultados con significancia
+      estadística. Documentar el experimento completo (hipótesis, resultados, aprendizajes)
+      independientemente del resultado. Implementar la variante ganadora de forma permanente
+      o iterar con una nueva hipótesis si el test fue inconcluso.
+resultado: Datos cuantitativos concluyentes sobre la variante ganadora que debe implementarse permanentemente, junto con el registro documentado del experimento como activo de conocimiento del equipo.
+dimensiones_usabilidad:
+  - Eficiencia
+  - Prevención de errores

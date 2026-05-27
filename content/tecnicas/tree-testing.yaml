@@ -1,0 +1,68 @@
+id: tree-testing
+nombre: Tree Testing
+
+clasificacion: Prueba
+
+fases:
+  - Prototipado
+  - Evaluación
+
+duracion: corta
+
+recursos: bajo
+
+costo_monetario: bajo
+
+num_usuarios_min: 15
+num_usuarios_max: 50
+
+materiales:
+  - Herramienta digital de tree testing
+  - Listado de la estructura de navegación en formato jerárquico
+  - Tareas redactadas para los participantes
+
+tiempos_detalle:
+  - fase: Preparación
+    tiempo: 2-4 horas
+  - fase: Reclutamiento de participantes
+    tiempo: 1-3 días
+  - fase: Ejecución
+    tiempo: 15-20 minutos por participante
+  - fase: Análisis de resultados
+    tiempo: 2-4 horas
+
+para_que_sirve:
+  - Evaluar si la estructura de navegación de un sitio web es intuitiva para los usuarios
+  - Medir la facilidad con la que los usuarios encuentran contenidos dentro de una jerarquía
+  - Validar o comparar distintas propuestas de arquitectura de información antes de diseñar la interfaz
+
+para_que_no_sirve:
+  - Evaluar el diseño visual o la interfaz gráfica
+  - Detectar problemas de usabilidad relacionados con la interacción o el flujo de uso
+  - Sustituir un test de usuario completo
+
+pasos:
+  - numero: 1
+    titulo: Definir la estructura a evaluar
+    descripcion: Crear o exportar la jerarquía de categorías y subcategorías del sitio en formato de árbol de texto.
+  - numero: 2
+    titulo: Redactar las tareas
+    descripcion: Formular entre 10 y 20 tareas representativas de los contenidos más importantes.
+  - numero: 3
+    titulo: Configurar la herramienta
+    descripcion: Introducir el árbol y las tareas en la herramienta elegida. Configurar el orden aleatorio de tareas para evitar sesgos.
+  - numero: 4
+    titulo: Reclutar participantes
+    descripcion: Seleccionar entre 15 y 50 usuarios del público objetivo. El estudio puede realizarse de forma remota y no moderada.
+  - numero: 5
+    titulo: Ejecutar el estudio
+    descripcion: Los participantes navegan por el árbol de texto intentando completar cada tarea. No ven ningún diseño visual, solo los nombres de las categorías.
+  - numero: 6
+    titulo: Analizar los resultados
+    descripcion: Revisar las métricas de éxito por tarea, los caminos seguidos y los puntos de abandono. Identificar categorías con baja tasa de éxito.
+
+resultado: Métricas cuantitativas por tarea  que permiten identificar qué partes de la estructura de navegación no son intuitivas para los usuarios.
+
+dimensiones_usabilidad:
+  - Eficacia
+  - Eficiencia

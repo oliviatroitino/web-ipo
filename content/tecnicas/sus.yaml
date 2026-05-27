@@ -1,0 +1,87 @@
+---
+# 6. SUS (System Usability Scale)
+id: sus
+nombre: System Usability Scale (SUS)
+clasificacion: Prueba
+descripcion_corta: >
+  El cuestionario de usabilidad más utilizado y científicamente validado de la industria UX.
+  Compuesto por 10 preguntas estandarizadas (John Brooke, 1986) en escala Likert de 5 puntos,
+  produce un score de 0 a 100 que permite comparar la usabilidad global de cualquier sistema
+  contra benchmarks internacionales.
+fases:
+  - Prototipado
+  - Evaluación
+  - Implementación
+duracion: corta
+tiempo_total_estimado: "2 horas de preparación + 10 minutos por participante"
+recursos: bajo
+costo_monetario: bajo
+num_usuarios_min: 15
+num_usuarios_max: null
+materiales:
+  - Los 10 ítems estandarizados del SUS (John Brooke, 1986) — no modificar la redacción
+  - Plantilla Excel con fórmula de cálculo SUS o calculadora online
+  - Escala de adjetivos de Bangor (2009) para interpretar el score cualitativamente
+tiempos_detalle:
+  - fase: Preparación y traducción validada del cuestionario
+    tiempo: 1 hora
+  - fase: Aplicación al final de la sesión
+    tiempo: 10 minutos por participante
+  - fase: Cálculo matemático y benchmarking
+    tiempo: 1 hora
+para_que_sirve:
+  - Obtener la evaluación global de usabilidad más fiable, utilizada y respaldada científicamente.
+  - Comparar el producto contra la media global de la industria (score medio del SUS global = 68 puntos).
+  - Medir la confianza del usuario y la curva de aprendizaje del sistema de forma global.
+  - Hacer seguimiento longitudinal de la usabilidad entre versiones del producto.
+  - Justificar inversión en mejoras de UX ante stakeholders con un número objetivo.
+para_que_no_sirve:
+  - Obtener diagnósticos cualitativos (el número dice si algo está mal, no qué ni dónde).
+  - Usar con niños, usuarios con baja comprensión lectora o audiencias no familiarizadas con escalas de rating.
+  - Sustituir pruebas de usabilidad observacionales (el SUS mide percepción, no comportamiento real).
+cuando_usarlo: >
+  Al finalizar cualquier prueba de usabilidad moderada o no moderada, o como encuesta
+  de salida en el producto. Especialmente valioso cuando se necesita comparar la usabilidad
+  de diferentes versiones de un mismo producto o justificar cambios con datos objetivos.
+advertencias:
+  - Un score SUS por encima de 68 se considera "por encima de la media"; por encima de 80 es "excelente".
+  - No modificar jamás la redacción de los 10 ítems originales; invalida la comparabilidad con benchmarks.
+  - El SUS mide usabilidad PERCIBIDA, no usabilidad objetiva; puede diferir del comportamiento real del usuario.
+  - Aplicar siempre inmediatamente después de la interacción con el sistema, antes de que el usuario reciba feedback.
+  - "La escala de adjetivos de Bangor (2009) permite traducir el score numérico: >85 Excelente, 71-85 Bueno, 51-70 Aceptable, <51 Marginal."
+pasos:
+  - numero: 1
+    titulo: Entrega de la escala Likert estandarizada
+    descripcion: >
+      Proporcionar al participante los 10 ítems del SUS (5 positivos intercalados con
+      5 negativos) para que los responda en escala de 1 a 5 (1 = totalmente en desacuerdo,
+      5 = totalmente de acuerdo). Los ítems positivos son: 1, 3, 5, 7, 9.
+      Los ítems negativos son: 2, 4, 6, 8, 10. Esta alternancia controla el sesgo de
+      aquiescencia (tendency to agree). No modificar la redacción original de ningún ítem.
+  - numero: 2
+    titulo: Cálculo de puntajes (corrección de dirección)
+    descripcion: >
+      Para ítems impares / positivos (1, 3, 5, 7, 9): restar 1 a la respuesta del usuario.
+      Para ítems pares / negativos (2, 4, 6, 8, 10): restar la respuesta del usuario de 5.
+      Cada resultado queda en rango 0-4. Este paso elimina la dirección de los ítems
+      para que todos apunten en la misma dirección positiva.
+  - numero: 3
+    titulo: Ponderación y obtención del score final
+    descripcion: >
+      Sumar los 10 resultados corregidos (rango total 0-40) y multiplicar la suma por 2.5
+      para obtener el score final en escala de 0 a 100.
+      Fórmula: Score SUS = Suma de los 10 ítems corregidos × 2.5.
+      Calcular la media del score entre todos los participantes para obtener el score
+      del producto.
+  - numero: 4
+    titulo: Interpretación y benchmarking
+    descripcion: >
+      Comparar el score obtenido contra los benchmarks de la industria:
+      >85 = Excelente (A), 71-85 = Bueno (B), 51-70 = Aceptable (C-D),
+      <51 = Inaceptable (F). Documentar el score con su intervalo de confianza
+      y comparar contra versiones anteriores del producto para medir progreso.
+resultado: El score oficial de usabilidad (0 a 100) que clasifica el producto como excelente, bueno, aceptable o inaceptable, comparable con benchmarks internacionales de la industria UX.
+dimensiones_usabilidad:
+  - Satisfacción
+  - Facilidad de aprendizaje
+  - Eficiencia

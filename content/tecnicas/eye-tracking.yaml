@@ -1,0 +1,89 @@
+---
+# 2. Eye Tracking
+id: eye-tracking
+nombre: Eye Tracking (Seguimiento Ocular)
+clasificacion: Prueba
+descripcion_corta: >
+  Técnica biométrica que registra con precisión milimétrica los movimientos oculares
+  del usuario mientras navega una interfaz, generando mapas de calor y trayectorias
+  de mirada para evaluar la jerarquía visual y la atención.
+fases:
+  - Prototipado
+  - Evaluación
+duracion: media
+tiempo_total_estimado: "53 horas (aprox. 2 semanas con trabajo paralelo)"
+recursos: alto
+costo_monetario: alto
+num_usuarios_min: 39
+num_usuarios_max: null
+materiales:
+  - Hardware de seguimiento ocular (gafas portátiles o barras infrarrojas de escritorio, ej. Tobii Pro, iMotions)
+  - Software de mapeo, grabación y análisis visual (Tobii Pro Lab, iMotions, GazePoint)
+  - Laboratorio controlado o entorno con iluminación homogénea sin reflejos
+  - Pantalla de resolución estándar calibrada
+  - Formulario de consentimiento informado para los participantes
+tiempos_detalle:
+  - fase: Preparación del protocolo y estímulos
+    tiempo: 8 horas
+  - fase: Reclutamiento de participantes
+    tiempo: 10 horas
+  - fase: Ejecución en laboratorio (calibración + sesiones)
+    tiempo: 20 horas
+  - fase: Análisis de mapas de calor y trayectorias
+    tiempo: 15 horas
+para_que_sirve:
+  - Medir con precisión milimétrica dónde mira el usuario, en qué orden y durante cuánto tiempo.
+  - Identificar elementos visuales que distraen o que pasan completamente desapercibidos (ceguera a los banners).
+  - Comprobar la efectividad de la jerarquía visual y el flujo de lectura de una página.
+  - Evaluar si los elementos más importantes (CTA, precio, titular) se ven antes que los secundarios.
+para_que_no_sirve:
+  - Entender qué está sintiendo o pensando el usuario mientras mira un punto (combinar con protocolo verbal concurrente).
+  - Evaluar la facilidad de aprendizaje de un flujo complejo de múltiples pasos.
+  - Proyectos con bajo presupuesto o tiempos ágiles de entrega.
+  - Usuarios con gafas de alta graduación, párpados caídos o movimientos oculares no estándar (problemas de calibración).
+cuando_usarlo: >
+  Cuando se necesita evidencia objetiva sobre la atención visual, especialmente
+  para validar jerarquías de diseño, layouts de páginas clave (home, producto, checkout)
+  o comparar la efectividad visual de dos alternativas de diseño.
+advertencias:
+  - El eye tracking mide DÓNDE mira el usuario, no POR QUÉ. Siempre complementar con preguntas post-sesión.
+  - La calibración deficiente invalida los datos; dedicar tiempo suficiente a este paso con cada participante.
+  - Los resultados pueden variar según el dispositivo (escritorio vs. móvil); especificar el contexto del test.
+  - El hardware profesional (Tobii Pro) puede superar los 20.000€; evaluar servicios de laboratorio externos como alternativa.
+pasos:
+  - numero: 1
+    titulo: Diseño del protocolo y preparación de estímulos
+    descripcion: >
+      Definir las tareas que realizará el usuario (ej. "Encuentra el precio del producto")
+      y preparar las pantallas o prototipos que se mostrarán. Establecer áreas de interés
+      (AOI - Areas of Interest) en el software para medir métricas específicas por zona.
+  - numero: 2
+    titulo: Calibración del equipo con cada participante
+    descripcion: >
+      Configurar el hardware infrarrojo con cada participante individualmente para asegurar
+      que la cámara mapea correctamente sus pupilas. Una calibración con error > 0.5° debe
+      repetirse antes de comenzar la sesión. Sin una buena calibración, los datos son inválidos.
+  - numero: 3
+    titulo: Ejecución de tareas en silencio
+    descripcion: >
+      El usuario navega por la interfaz realizando las tareas definidas mientras el software
+      graba sus movimientos sacádicos (desplazamientos rápidos entre puntos) y fijaciones
+      visuales (pausas de atención). El moderador no debe interrumpir salvo para cambiar
+      de tarea. Opcionalmente se puede grabar pantalla y audio simultáneamente.
+  - numero: 4
+    titulo: Generación y análisis de mapas
+    descripcion: >
+      El sistema procesa los datos y genera mapas de calor agregados (heatmaps) que muestran
+      las zonas con mayor densidad de fijaciones, y diagramas de mirada individuales (gaze plots)
+      que muestran el recorrido visual de cada usuario. Analizar métricas por AOI: tiempo hasta
+      primera fijación, número de fijaciones, tiempo total de atención.
+  - numero: 5
+    titulo: Síntesis y reporte de hallazgos
+    descripcion: >
+      Cruzar los datos de eye tracking con las métricas de comportamiento (clics, conversiones)
+      para identificar patrones. Documentar hallazgos visuales con capturas anotadas y
+      recomendaciones de rediseño priorizadas.
+resultado: Representaciones gráficas objetivas (heatmaps y gaze plots) de la atención visual, junto con métricas cuantitativas de tiempo de fijación, tiempo hasta el primer clic y cobertura visual por zona.
+dimensiones_usabilidad:
+  - Eficiencia
+  - Satisfacción
