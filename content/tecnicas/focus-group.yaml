@@ -1,0 +1,60 @@
+id: focus-group
+nombre: Grupo focal
+
+clasificacion: Indagación
+
+fases:
+  - Descubrimiento
+  - Evaluación
+
+duracion: media
+
+recursos: medio
+
+costo_monetario: medio
+
+num_usuarios_min: 6
+num_usuarios_max: 12
+
+materiales:
+  - Una sala cómoda con una mesa grande donde quepan todos para hablar cara a cara.
+  - Grabadora de audio o cámara de vídeo.
+  - Guión con los temas y preguntas que va a lanzar el moderador.
+  - Incentivos para los participantes, como regalos o tarjetas de descuento.
+
+tiempos_detalle:
+  - fase: Preparación
+    tiempo: 4 horas
+  - fase: Reclutamiento de participantes
+    tiempo: 10 horas
+  - fase: Ejecución
+    tiempo: 2 horas
+  - fase: Análisis de resultados
+    tiempo: 6 horas
+
+para_que_sirve:
+  - Para juntar a varios usuarios en una misma sala y descubrir qué opinan, qué sienten o qué prejuicios tienen sobre una idea o un producto antes de gastar tiempo programándolo.
+  - Sirve para ver cómo debaten entre ellos, porque la respuesta de uno suele activar opiniones en los demás que no saldrían en una entrevista a solas.
+
+para_que_no_sirve:
+  - No sirve para ver cómo usa la gente la interfaz de verdad; la gente en un grupo habla de lo que cree que hace, pero luego la realidad cuando se sientan solos ante la pantalla es otra.
+  - Tampoco sirve para sacar información de estos usuarios si hay personas muy tímidas o un líder que domine la conversación y haga que los demás le den la razón por no discutir.
+
+pasos:
+  - numero: 1
+    titulo: Preparar el guión y los temas
+    descripcion: Escribimos las preguntas abiertas y los temas clave que queremos que salgan en la charla, organizando el tiempo para que no nos pille el toro.
+  - numero: 2
+    titulo: Reclutar y montar la sesión
+    descripcion: Buscamos a los participantes que encajen con nuestro tipo de usuario, los citamos en una sala y preparamos comida o café para que se relajen y hablen cómodamente.
+  - numero: 3
+    titulo: Moderar el debate
+    descripcion: El moderador lanza las preguntas para romper el hielo y guía la conversación sin dar su opinión, asegurándose de que todos hablen y nadie se coma a los demás. Un compañero toma notas desde fuera.
+  - numero: 4
+    titulo: Analizar los vídeos y notas
+    descripcion: Revisamos las grabaciones de la sesión, sacamos los comentarios más repetidos o potentes y escribimos las conclusiones sobre lo que más ha gustado y lo que ha generado más rechazo.
+
+resultado: Un informe cualitativo con las percepciones, deseos, miedos y reacciones del grupo hacia el producto, junto con ideas nuevas que hayan surgido de la propia charla.
+
+dimensiones_usabilidad:
+  - Satisfacción

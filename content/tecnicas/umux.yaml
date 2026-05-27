@@ -1,0 +1,75 @@
+---
+# 5. UMUX (Usability Metric for User Experience)
+id: umux
+nombre: Usability Metric for User Experience (UMUX)
+clasificacion: Prueba
+descripcion_corta: >
+  Encuesta estandarizada de solo 4 ítems en escala Likert de 7 puntos que mide
+  la usabilidad percibida del sistema de forma rápida y con alta validez científica,
+  produciendo un score de 0 a 100 compatible con el SUS.
+fases:
+  - Prototipado
+  - Evaluación
+  - Implementación
+duracion: corta
+tiempo_total_estimado: "2 horas de preparación + 5 minutos por participante"
+recursos: bajo
+costo_monetario: bajo
+num_usuarios_min: 20
+num_usuarios_max: null
+materiales:
+  - Formulario digital (Typeform, Google Forms, encuestas interceptadas in-app)
+  - Hoja de cálculo con fórmula de cálculo UMUX
+  - Los 4 ítems estandarizados del UMUX (Finstad, 2010)
+tiempos_detalle:
+  - fase: Preparación y configuración de la encuesta
+    tiempo: 1 hora
+  - fase: Aplicación al final de cada sesión o interacción
+    tiempo: 5 minutos por participante
+  - fase: Tabulación y cálculo del score
+    tiempo: 1 hora
+para_que_sirve:
+  - Medir la usabilidad percibida del software de forma extremadamente rápida (solo 4 preguntas).
+  - Reemplazar al SUS cuando se necesita una encuesta más corta y menos fatigante para el usuario.
+  - Obtener un indicador numérico comparable entre versiones del producto a lo largo del tiempo.
+  - Usar como métrica de seguimiento continuo tras actualizaciones o rediseños.
+para_que_no_sirve:
+  - Reemplazar una prueba de usabilidad presencial (es solo una métrica de percepción, no detecta problemas específicos).
+  - Encontrar fallos concretos en la interfaz gráfica o en flujos específicos.
+  - Proyectos donde la audiencia tiene baja comprensión lectora o es menor de edad.
+cuando_usarlo: >
+  Al final de cualquier sesión de test de usabilidad, o como encuesta intercalada
+  en el producto tras completar un flujo clave (ej. después del checkout), para
+  obtener una medición sistemática y comparable de la percepción de usabilidad.
+advertencias:
+  - Aplicar SIEMPRE inmediatamente después de la interacción; el recuerdo se degrada rápido.
+  - No modificar la redacción de los ítems estandarizados; altera la validez del score.
+  - El UMUX-LITE (solo 2 ítems) existe para contextos aún más restrictivos, aunque con menor precisión.
+  - Un score UMUX por encima de 70 se considera aceptable según los benchmarks publicados.
+pasos:
+  - numero: 1
+    titulo: Aplicación de los 4 ítems Likert
+    descripcion: >
+      Inmediatamente después de que el usuario interactúe con el producto, presentar
+      las 4 afirmaciones estandarizadas del UMUX en escala de 7 puntos
+      (1 = totalmente en desacuerdo, 7 = totalmente de acuerdo):
+      (1) "Este sistema tiene las capacidades que necesito."
+      (2) "Este sistema es frustrante de usar." [ítem negativo]
+      (3) "Este sistema es fácil de usar."
+      (4) "Tengo que invertir demasiado esfuerzo para usar este sistema." [ítem negativo]
+  - numero: 2
+    titulo: Conversión de escala (normalización)
+    descripcion: >
+      Para los ítems impares (1 y 3, positivos): restar 1 a la respuesta del usuario.
+      Para los ítems pares (2 y 4, negativos): restar la respuesta del usuario de 7.
+      Resultado: todas las puntuaciones quedan en rango 0-6, donde 6 siempre es lo mejor.
+  - numero: 3
+    titulo: Cálculo del score final
+    descripcion: >
+      Sumar las 4 puntuaciones convertidas (rango total 0-24), dividir entre 24
+      (máximo posible) y multiplicar por 100. El resultado es el score UMUX de 0 a 100.
+      Fórmula: Score = (Suma de los 4 ítems convertidos / 24) × 100.
+resultado: Un indicador numérico (0 a 100) alineado con estándares internacionales ISO 9241-11 de usabilidad, comparable con el SUS y con versiones anteriores del mismo producto.
+dimensiones_usabilidad:
+  - Satisfacción
+  - Utilidad

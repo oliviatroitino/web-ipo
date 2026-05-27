@@ -1,0 +1,88 @@
+---
+# 3. Contextual Inquiry (Indagación Contextual)
+id: contextual-inquiry
+nombre: Indagación Contextual
+clasificacion: Indagación
+descripcion_corta: >
+  Método etnográfico en el que el investigador se desplaza al entorno natural del usuario
+  para observarlo trabajar en tiempo real, interrumpiendo para preguntar el "porqué"
+  de sus acciones bajo el modelo "aprendiz y maestro".
+fases:
+  - Descubrimiento
+duracion: larga
+tiempo_total_estimado: "52 horas (aprox. 2-3 semanas incluyendo desplazamientos)"
+recursos: alto
+costo_monetario: medio
+num_usuarios_min: 5
+num_usuarios_max: 12
+materiales:
+  - Libreta de notas y bolígrafos
+  - Grabadora de audio y cámara de video (previa autorización firmada)
+  - Guía de observación semiestructurada con temas clave a explorar
+  - Autorizaciones legales de acceso a las instalaciones del cliente/usuario
+  - Plantillas de affinity diagram o diagramas de flujo para el análisis
+tiempos_detalle:
+  - fase: Definición de perfil de usuario y diseño de guía de observación
+    tiempo: 6 horas
+  - fase: Reclutamiento y coordinación logística (viajes, permisos)
+    tiempo: 10 horas
+  - fase: Observación in situ — desplazamientos y sesiones
+    tiempo: 24 horas
+  - fase: Análisis, diagramación y síntesis de hallazgos
+    tiempo: 12 horas
+para_que_sirve:
+  - Entender cómo interactúa el usuario con la tecnología en su entorno natural y real (su oficina, su casa, su hospital).
+  - Descubrir interrupciones físicas, uso de herramientas externas no digitales (post-its, hojas Excel paralelas, calculadoras) y frustraciones no verbalizadas.
+  - Identificar workarounds (soluciones informales) que el usuario ha desarrollado para compensar las carencias del sistema actual.
+  - Diseñar herramientas especializadas para contextos complejos (software para hospitales, cajeros, líneas de producción).
+para_que_no_sirve:
+  - Medir clics, conversiones o tiempos de tarea exactos.
+  - Evaluar diseños terminados o comparar variantes visuales.
+  - Validar opciones estéticas de UI.
+  - Obtener datos representativos estadísticamente (la muestra es pequeña y cualitativa).
+cuando_usarlo: >
+  En la fase de descubrimiento, antes de definir el producto o cuando se detecta
+  que los usuarios reales usan el sistema de formas inesperadas que no se capturan
+  en entrevistas o tests de laboratorio.
+advertencias:
+  - El investigador debe resistir la tentación de sugerir soluciones durante la sesión; su rol es observar y preguntar.
+  - Obtener siempre permisos legales por escrito antes de grabar o de visitar instalaciones de empresas.
+  - El "efecto observador" (el usuario se comporta diferente al sentirse vigilado) se mitiga con la fase de transición explícita.
+  - No confundir con una entrevista: el usuario debe estar HACIENDO su trabajo real, no describiéndolo.
+pasos:
+  - numero: 1
+    titulo: Introducción y establecimiento de rapport (Primer)
+    descripcion: >
+      El investigador se desplaza al entorno real del usuario. Se presenta bajo el modelo
+      "aprendiz y maestro" (el usuario es el experto, el investigador aprende de él),
+      construye rapport inicial, explica los objetivos de la sesión, aborda los temas
+      de confidencialidad y grabación, y pide al usuario un breve resumen de las tareas
+      típicas que realizará durante la sesión.
+  - numero: 2
+    titulo: Transición explícita al modo de observación
+    descripcion: >
+      Antes de comenzar la observación, el investigador hace una transición verbal explícita:
+      "A partir de ahora, por favor trabaja con normalidad como si yo no estuviera. Te haré
+      preguntas cuando vea algo interesante." Este paso es crítico para romper el "modo
+      entrevista" en el que el usuario tiende a describir lo que haría en lugar de hacerlo.
+  - numero: 3
+    titulo: Observación e indagación contextual activa
+    descripcion: >
+      El usuario realiza sus tareas rutinarias reales mientras el investigador observa
+      activamente. El investigador interrumpe para preguntar el "porqué" de acciones
+      concretas ("Veo que acabas de abrir Excel, ¿por qué?"), formula hipótesis sobre
+      el modelo mental del usuario pidiéndole que las confirme o corrija ("Parece que
+      guardas los pedidos pendientes en un archivo separado, ¿es así?"). La observación
+      nunca es pasiva ni silenciosa.
+  - numero: 4
+    titulo: Cierre y síntesis en sesión (Wrapup)
+    descripcion: >
+      Al finalizar, el investigador repasa en voz alta sus notas e interpretaciones
+      principales y da al usuario la oportunidad de corregir malentendidos o añadir
+      contexto. Este paso valida las interpretaciones antes de que el investigador
+      se retire. Posteriormente, en gabinete, se documentan los flujos reales,
+      atajos informales y workarounds en diagramas de affinity o modelos de flujo.
+resultado: Perfiles de usuario detallados con contexto físico y digital real, modelos del entorno de trabajo que revelan factores externos que afectan al uso del sistema, y el descubrimiento de necesidades no articuladas, dolores ocultos y workarounds informales.
+dimensiones_usabilidad:
+  - Utilidad
+  - Satisfacción

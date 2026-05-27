@@ -1,0 +1,77 @@
+id: test-de-usuario
+nombre: Test de Usuario
+
+clasificacion: Prueba
+
+fases:
+  - Evaluación
+  - Implementación
+
+duracion: larga
+
+recursos: medio
+
+costo_monetario: medio
+
+num_usuarios_min: 5
+num_usuarios_max: 30
+
+materiales:
+  - Prototipo de alta fidelidad o versión funcional del producto
+  - Guión de tareas escrito
+  - Formulario de consentimiento para grabación
+  - Software de grabación de pantalla
+  - Cuestionario de satisfacción post-sesión
+
+tiempos_detalle:
+  - fase: Preparación
+    tiempo: 5-10 horas
+  - fase: Reclutamiento de participantes
+    tiempo: 2-5 días
+  - fase: Ejecución
+    tiempo: 45-90 minutos por participante
+  - fase: Análisis de resultados
+    tiempo: 3-5 horas por participante
+
+para_que_sirve:
+  - Evaluar la usabilidad real de un producto observando cómo usuarios reales completan tareas representativas
+  - Medir eficacia, eficiencia y satisfacción de forma directa
+  - Identificar problemas de usabilidad que no detectan las técnicas de inspección
+
+para_que_no_sirve:
+  - Fases muy tempranas del desarrollo sin ningún prototipo
+  - Obtener métricas estadísticamente significativas con menos de 20 participantes
+  - Sustituir técnicas de inspección como la evaluación heurística en fases tempranas
+
+pasos:
+  - numero: 1
+    titulo: Definir las tareas
+    descripcion: Identificar las tareas más críticas para el usuario y redactar el guión sin indicar cómo completarlas.
+  - numero: 2
+    titulo: Reclutar participantes
+    descripcion: Seleccionar entre 5 y 30 usuarios del público objetivo, evitando personas  del equipo de diseño.
+  - numero: 3
+    titulo: Preparar el entorno
+    descripcion: Configurar la grabación de pantalla y audio, y preparar el formulario de consentimiento.
+  - numero: 4
+    titulo: Briefing inicial
+    descripcion: Explicar al participante que se evalúa el producto y no a él, y obtener el consentimiento de grabación.
+  - numero: 5
+    titulo: Ejecución de tareas
+    descripcion: El usuario intenta completar cada tarea mientras el moderador observa sin intervenir. Se registra si completa la tarea, el tiempo empleado y los errores cometidos.
+  - numero: 6
+    titulo: Cuestionario post-sesión
+    descripcion: Administrar el cuestionario de satisfacción al finalizar todas las tareas.
+  - numero: 7
+    titulo: Debriefing
+    descripcion: Sesión breve de preguntas sobre la experiencia general del usuario.
+  - numero: 8
+    titulo: Análisis
+    descripcion: Consolidar métricas e identificar problemas recurrentes ordenados por severidad.
+
+resultado: Informe con métricas cuantitativas por tarea y observaciones cualitativas sobre los problemas detectados. Puede incluir puntuación SUS como medida de satisfacción global.
+
+dimensiones_usabilidad:
+  - Eficacia
+  - Eficiencia
+  - Satisfacción

@@ -1,0 +1,85 @@
+---
+# 4. Click Maps (Mapas de Clics)
+id: click-maps
+nombre: Mapas de Clics
+clasificacion: Prueba
+descripcion_corta: >
+  Herramienta de analítica pasiva que registra automáticamente dónde hacen clic
+  o tocan los usuarios en una página web real, generando mapas de calor superpuestos
+  a la interfaz para identificar patrones de interacción a gran escala.
+fases:
+  - Evaluación
+  - Implementación
+duracion: media
+tiempo_total_estimado: "2 a 3 semanas (recolección pasiva) + 4 horas de trabajo activo"
+recursos: bajo
+costo_monetario: bajo
+num_usuarios_min: 500
+num_usuarios_max: null
+materiales:
+  - Software de heatmaps (Hotjar, Microsoft Clarity —gratuito—, CrazyEgg, FullStory)
+  - Sitio web publicado con tráfico real suficiente
+tiempos_detalle:
+  - fase: Instalación y configuración de scripts
+    tiempo: 1 hora
+  - fase: Recolección pasiva de datos
+    tiempo: 2 a 3 semanas
+  - fase: Segmentación y filtrado de datos
+    tiempo: 1 hora
+  - fase: Revisión, análisis visual y documentación
+    tiempo: 3 horas
+para_que_sirve:
+  - Visualizar rápidamente qué enlaces, botones o zonas son los más clickeados por la audiencia masiva.
+  - Detectar rage clicks (clics repetitivos de frustración) en elementos que no son interactivos.
+  - Evaluar si las llamadas a la acción (CTAs) principales están funcionando como se diseñaron.
+  - Identificar elementos que los usuarios intentan hacer clic sin éxito (confusión de affordance).
+  - Comunicar visualmente problemas y oportunidades de mejora a stakeholders no técnicos.
+  - Complementar pruebas A/B para ver en qué elementos específicos impactó cada variante.
+para_que_no_sirve:
+  - Descubrir en qué paso de un formulario multistep abandonó el usuario (usar session recordings o funnel analysis).
+  - Saber por qué un usuario hizo clic en un lugar erróneo.
+  - Evaluar prototipos o diseños antes de programarlos.
+  - Obtener datos sobre usuarios individuales identificables.
+cuando_usarlo: >
+  Cuando el producto ya está en producción y se quiere un diagnóstico rápido y de bajo
+  coste del comportamiento de interacción a gran escala, especialmente en páginas de alto
+  tráfico como home, landing pages o páginas de producto.
+advertencias:
+  - Los datos varían significativamente entre dispositivos; siempre segmentar por móvil, tablet y escritorio.
+  - Los rage clicks son un indicador de frustración, pero no explican la causa; requieren investigación cualitativa adicional.
+  - Microsoft Clarity es gratuito y suficiente para la mayoría de proyectos; no siempre es necesario Hotjar de pago.
+  - Verificar que la instalación del script cumple con la normativa GDPR/LOPD (consentimiento de cookies).
+pasos:
+  - numero: 1
+    titulo: Implementación técnica
+    descripcion: >
+      Pegar el fragmento de código JavaScript de la herramienta elegida en el <head>
+      del sitio web, idealmente a través de un gestor de etiquetas (Google Tag Manager)
+      para facilitar el control y la gestión. Verificar que el script está activo y
+      registrando datos correctamente antes de esperar los resultados.
+  - numero: 2
+    titulo: Segmentación de la recolección
+    descripcion: >
+      Configurar el software para registrar y visualizar las interacciones separadas
+      por tipo de dispositivo (Móvil, Tablet, Escritorio), ya que los patrones de clic
+      son radicalmente diferentes entre dispositivos. Opcionalmente segmentar también
+      por fuente de tráfico o tipo de usuario (nuevo vs. recurrente).
+  - numero: 3
+    titulo: Interpretación cromática y detección de patrones
+    descripcion: >
+      Visualizar las manchas de calor (zonas rojas = alta interacción / zonas azules =
+      baja interacción) e identificar: (a) CTAs que no reciben clics esperados,
+      (b) elementos no interactivos que reciben clics (confusión de affordance),
+      (c) rage clicks indicadores de frustración, (d) zonas "frías" donde debería
+      haber interacción y no la hay.
+  - numero: 4
+    titulo: Documentación y priorización
+    descripcion: >
+      Exportar capturas anotadas de los hallazgos más relevantes y cruzarlos con
+      métricas de negocio (tasa de conversión, abandono) para priorizar los problemas
+      con mayor impacto. Compartir con el equipo y stakeholders para justificar
+      cambios de diseño con evidencia visual.
+resultado: Imágenes de mapas de calor superpuestas a la interfaz que revelan patrones táctiles y de uso del ratón, junto con datos cuantitativos sobre número de clics, porcentaje de interacción por elemento y detección de rage clicks.
+dimensiones_usabilidad:
+  - Eficiencia
+  - Facilidad de aprendizaje

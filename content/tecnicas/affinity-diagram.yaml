@@ -1,0 +1,62 @@
+id: affinity-diagram
+nombre: Diagrama de afinidad
+
+clasificacion: Indagación
+
+fases:
+  - Descubrimiento
+
+duracion: media
+
+recursos: bajo
+
+costo_monetario: bajo
+
+num_usuarios_min: 3
+num_usuarios_max: 8
+
+materiales:
+  - Post-its de varios colores
+  - Rotuladores o bolígrafos
+  - Una pizarra grande o una pared despejada
+  - Herramientas digitales opcionales
+
+tiempos_detalle:
+  - fase: Preparación
+    tiempo: 2 horas
+  - fase: Reclutamiento de participantes
+    tiempo: 0 horas
+  - fase: Ejecución
+    tiempo: 3 horas
+  - fase: Análisis de resultados
+    tiempo: 2 horas
+
+para_que_sirve:
+  - Para ordenar el caos de información que sacas después de hacer entrevistas o investigaciones con usuarios.
+  - Te ayuda a agrupar ideas sueltas, notas y comentarios en categorías comunes para ver patrones y problemas clave de un vistazo.
+
+para_que_no_sirve:
+  - No sirve para medir estadísticas ni conseguir datos numéricos (como tasas de éxito o tiempos).
+  - Tampoco sirve para validar si un diseño final funciona bien o es intuitivo.
+
+pasos:
+  - numero: 1
+    titulo: Volcar la información en post-its
+    descripcion: Revisamos todas las notas, frases clave y apuntes de la investigación con usuarios y pasamos cada idea o dato importante a un post-it individual.
+  - numero: 2
+    titulo: Pegar y agrupar de forma aleatoria
+    descripcion: Ponemos todos los post-its en una pared o pizarra para que todo el equipo los vea y empezamos a juntar los que hablen de lo mismo o estén relacionados, sin pensarlo demasiado.
+  - numero: 3
+    titulo: Poner nombre a los grupos
+    descripcion: Buscamos un título o etiqueta para cada grupo de post-its que resuma el problema común o patrón que hemos encontrado.
+  - numero: 4
+    titulo: Analizar y priorizar
+    descripcion: Revisamos el mapa completo con el equipo para debatir cuáles son los problemas más graves o repetidos y elegimos en qué nos vamos a enfocar para empezar a diseñar.
+
+resultado: Un mapa visual estructurado en columnas o bloques temáticos que resume las necesidades, quejas y deseos principales de los usuarios para saber por dónde empezar a diseñar.
+
+dimensiones_usabilidad:
+  - Eficiencia
+  - Eficacia
+  - Satisfacción
+  - Facilidad de aprendizaje

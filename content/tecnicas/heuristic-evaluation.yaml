@@ -1,0 +1,60 @@
+id: heuristic-evaluation
+nombre: Evaluación heurística
+
+clasificacion: Inspección
+
+fases:
+  - Evaluación
+
+duracion: corta
+
+recursos: bajo
+
+costo_monetario: bajo
+
+num_usuarios_min: 3
+num_usuarios_max: 5
+
+materiales:
+  - Interfaz o prototipo que se va a evaluar.
+  - Plantilla o documento con las 10 heurísticas de Nielsen.
+  - Una hoja de cálculo o documento para ir apuntando las infracciones y su gravedad.
+
+tiempos_detalle:
+  - fase: Preparación
+    tiempo: 2 horas
+  - fase: Reclutamiento de participantes
+    tiempo: 1 hora
+  - fase: Ejecución
+    tiempo: 4 horas
+  - fase: Análisis de resultados
+    tiempo: 3 horas
+
+para_que_sirve:
+  - Para encontrar fallos de usabilidad rápidamente en una interfaz sin necesidad de gastar tiempo ni dinero buscando a usuarios reales.
+  - Sirve para comprobar si el diseño respeta las reglas básicas de experiencia de usuario.
+
+para_que_no_sirve:
+  - No sirve para saber qué opinan los usuarios reales ni si les gusta el producto de verdad.
+  - Tampoco sirve si buscas un testeo a ciegas, porque los evaluadores ya van con una lista de control y predispuestos a buscar fallos técnicos.
+
+pasos:
+  - numero: 1
+    titulo: Definir el alcance y preparar las heurísticas
+    descripcion: Decidimos qué flujos de la pantalla vamos a revisar.
+  - numero: 2
+    titulo: Inspección individual
+    descripcion: Cada evaluador recorre la interfaz por separado de forma meticulosa, simulando diferentes acciones y anotando cada fallo que encuentra, indicando qué principio se está saltando.
+  - numero: 3
+    titulo: Asignar severidad a los fallos
+    descripcion: Nos juntamos los evaluadores para poner en común los problemas encontrados y les damos una nota del 0 al 4 según lo grave que sea el fallo.
+  - numero: 4
+    titulo: Crear el informe de mejoras
+    descripcion: Redactamos un documento final donde agrupamos los fallos repetidos, explicamos por qué están mal y proponemos soluciones de diseño para arreglarlos.
+
+resultado: Un informe detallado con un listado de problemas de usabilidad clasificados por su nivel de gravedad y propuestas de diseño para solucionarlos antes de lanzar el producto.
+
+dimensiones_usabilidad:
+  - Facilidad de aprendizaje
+  - Eficiencia
+  - Prevención de errores
